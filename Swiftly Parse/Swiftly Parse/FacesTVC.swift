@@ -97,4 +97,14 @@ class FacesTVC: UITableViewController {
     }
     */
 
+    @IBAction func navButton(sender: UIBarButtonItem) {
+        
+        let navC = UINavigationController(rootViewController: IWAViewController())
+        
+        self.navigationController.presentViewController(navC, animated: true) { () -> Void in
+            
+        }
+        
+        
+    }
 }
