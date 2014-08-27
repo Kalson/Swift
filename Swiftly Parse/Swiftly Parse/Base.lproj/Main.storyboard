@@ -7,7 +7,7 @@
         <!--Face Kicks-->
         <scene sceneID="INX-7L-R32">
             <objects>
-                <tableViewController id="Mcx-oU-6Vf" customClass="FacesTVC" sceneMemberID="viewController">
+                <tableViewController id="Mcx-oU-6Vf" customClass="FacesTVC" customModule="Swiftly_Parse" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="22" sectionFooterHeight="22" id="JdU-sF-87J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -34,9 +34,9 @@
                     </tableView>
                     <toolbarItems>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="3bf-Yg-r3K"/>
-                        <barButtonItem systemItem="camera" id="77c-j0-7ca">
+                        <barButtonItem systemItem="camera" id="EF9-QF-mJq">
                             <connections>
-                                <action selector="navButton:" destination="Mcx-oU-6Vf" id="ggH-ia-nyH"/>
+                                <action selector="navButton:" destination="Mcx-oU-6Vf" id="yiI-KD-oUw"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem style="plain" systemItem="flexibleSpace" id="Rgq-xt-Ec0"/>

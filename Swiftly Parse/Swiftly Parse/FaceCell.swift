@@ -8,6 +8,8 @@
 
 import UIKit
 
+let SCREEN_HEIGHT = UIScreen.mainScreen().bounds.size.height
+
 class FaceCell: UITableViewCell {
 
     @IBOutlet weak var faceView: UIImageView!
@@ -15,6 +17,9 @@ class FaceCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
+        var someHeight = SCREEN_HEIGHT - 100
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {
