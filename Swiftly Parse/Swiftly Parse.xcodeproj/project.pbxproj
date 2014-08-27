@@ -122,11 +122,11 @@
 			isa = PBXGroup;
 			children = (
 				2635B81019ACE8BF0071D20E /* ObjC */,
-				269133F419ACC09D00E5045D /* Frameworks */,
 				269133D119ACBE7100E5045D /* Swiftly Parse */,
 				269133D219ACBE7100E5045D /* Supporting Files */,
 				269133E419ACBE7200E5045D /* Swiftly ParseTests */,
 				269133D019ACBE7100E5045D /* Products */,
+				269133F419ACC09D00E5045D /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};

@@ -44,7 +44,7 @@ class FacesTVC: UITableViewController {
     
     func refreshData()
     {
-        var query = PFQuery(className: "faces")
+        var query = PFQuery(className: "Faces")
         query.findObjectsInBackgroundWithBlock {(objects: [AnyObject]!, error: NSError!) -> Void in
             
             self.faces = objects
