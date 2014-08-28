@@ -1,0 +1,498 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		26D9BD5019AF5C710004AA11 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AA9C19AE18250084CBCF /* Parse.framework */; };
+		26F8AA7B19AE16FD0084CBCF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8AA7A19AE16FD0084CBCF /* AppDelegate.swift */; };
+		26F8AA7D19AE16FD0084CBCF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8AA7C19AE16FD0084CBCF /* ViewController.swift */; };
+		26F8AA8019AE16FD0084CBCF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 26F8AA7E19AE16FD0084CBCF /* Main.storyboard */; };
+		26F8AA8219AE16FD0084CBCF /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26F8AA8119AE16FD0084CBCF /* Images.xcassets */; };
+		26F8AA8E19AE16FE0084CBCF /* Lets_Be_FriendsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26F8AA8D19AE16FE0084CBCF /* Lets_Be_FriendsTests.swift */; };
+		26F8AA9E19AE18250084CBCF /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AA9B19AE18250084CBCF /* Bolts.framework */; };
+		26F8AAA019AE18250084CBCF /* ParseFacebookUtils.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AA9D19AE18250084CBCF /* ParseFacebookUtils.framework */; };
+		26F8AAAB19AE19080084CBCF /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA119AE19080084CBCF /* SystemConfiguration.framework */; };
+		26F8AAAC19AE19080084CBCF /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA219AE19080084CBCF /* StoreKit.framework */; };
+		26F8AAAD19AE19080084CBCF /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA319AE19080084CBCF /* Security.framework */; };
+		26F8AAAE19AE19080084CBCF /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA419AE19080084CBCF /* QuartzCore.framework */; };
+		26F8AAAF19AE19080084CBCF /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA519AE19080084CBCF /* MobileCoreServices.framework */; };
+		26F8AAB019AE19080084CBCF /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA619AE19080084CBCF /* libz.dylib */; };
+		26F8AAB119AE19080084CBCF /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA719AE19080084CBCF /* CoreLocation.framework */; };
+		26F8AAB219AE19080084CBCF /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA819AE19080084CBCF /* CFNetwork.framework */; };
+		26F8AAB319AE19080084CBCF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAA919AE19080084CBCF /* CoreGraphics.framework */; };
+		26F8AAB419AE19080084CBCF /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26F8AAAA19AE19080084CBCF /* AudioToolbox.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		26F8AA8819AE16FE0084CBCF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 26F8AA6D19AE16FD0084CBCF /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 26F8AA7419AE16FD0084CBCF;
+			remoteInfo = "Lets Be Friends";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		26F8AA7519AE16FD0084CBCF /* Lets Be Friends.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Lets Be Friends.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F8AA7919AE16FD0084CBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26F8AA7A19AE16FD0084CBCF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		26F8AA7C19AE16FD0084CBCF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		26F8AA7F19AE16FD0084CBCF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		26F8AA8119AE16FD0084CBCF /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		26F8AA8719AE16FE0084CBCF /* Lets Be FriendsTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Lets Be FriendsTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		26F8AA8C19AE16FE0084CBCF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		26F8AA8D19AE16FE0084CBCF /* Lets_Be_FriendsTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Lets_Be_FriendsTests.swift; sourceTree = "<group>"; };
+		26F8AA9719AE178E0084CBCF /* Lets Be Friends-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Lets Be Friends-Bridging-Header.h"; sourceTree = "<group>"; };
+		26F8AA9B19AE18250084CBCF /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		26F8AA9C19AE18250084CBCF /* Parse.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Parse.framework; sourceTree = "<group>"; };
+		26F8AA9D19AE18250084CBCF /* ParseFacebookUtils.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ParseFacebookUtils.framework; sourceTree = "<group>"; };
+		26F8AAA119AE19080084CBCF /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		26F8AAA219AE19080084CBCF /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		26F8AAA319AE19080084CBCF /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		26F8AAA419AE19080084CBCF /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		26F8AAA519AE19080084CBCF /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		26F8AAA619AE19080084CBCF /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		26F8AAA719AE19080084CBCF /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		26F8AAA819AE19080084CBCF /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		26F8AAA919AE19080084CBCF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		26F8AAAA19AE19080084CBCF /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		26F8AA7219AE16FD0084CBCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26F8AAB319AE19080084CBCF /* CoreGraphics.framework in Frameworks */,
+				26F8AAB219AE19080084CBCF /* CFNetwork.framework in Frameworks */,
+				26F8AA9E19AE18250084CBCF /* Bolts.framework in Frameworks */,
+				26F8AAAE19AE19080084CBCF /* QuartzCore.framework in Frameworks */,
+				26F8AAB419AE19080084CBCF /* AudioToolbox.framework in Frameworks */,
+				26F8AAAC19AE19080084CBCF /* StoreKit.framework in Frameworks */,
+				26D9BD5019AF5C710004AA11 /* Parse.framework in Frameworks */,
+				26F8AAAB19AE19080084CBCF /* SystemConfiguration.framework in Frameworks */,
+				26F8AAB019AE19080084CBCF /* libz.dylib in Frameworks */,
+				26F8AAB119AE19080084CBCF /* CoreLocation.framework in Frameworks */,
+				26F8AAAF19AE19080084CBCF /* MobileCoreServices.framework in Frameworks */,
+				26F8AAAD19AE19080084CBCF /* Security.framework in Frameworks */,
+				26F8AAA019AE18250084CBCF /* ParseFacebookUtils.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26F8AA8419AE16FE0084CBCF /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		26F8AA6C19AE16FD0084CBCF = {
+			isa = PBXGroup;
+			children = (
+				26F8AA7719AE16FD0084CBCF /* Lets Be Friends */,
+				26F8AA8A19AE16FE0084CBCF /* Lets Be FriendsTests */,
+				26F8AA7619AE16FD0084CBCF /* Products */,
+				26F8AA9A19AE17C70084CBCF /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		26F8AA7619AE16FD0084CBCF /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AA7519AE16FD0084CBCF /* Lets Be Friends.app */,
+				26F8AA8719AE16FE0084CBCF /* Lets Be FriendsTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		26F8AA7719AE16FD0084CBCF /* Lets Be Friends */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AA7A19AE16FD0084CBCF /* AppDelegate.swift */,
+				26F8AA7C19AE16FD0084CBCF /* ViewController.swift */,
+				26F8AA7E19AE16FD0084CBCF /* Main.storyboard */,
+				26F8AA8119AE16FD0084CBCF /* Images.xcassets */,
+				26F8AA7819AE16FD0084CBCF /* Supporting Files */,
+				26F8AA9719AE178E0084CBCF /* Lets Be Friends-Bridging-Header.h */,
+			);
+			path = "Lets Be Friends";
+			sourceTree = "<group>";
+		};
+		26F8AA7819AE16FD0084CBCF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AA7919AE16FD0084CBCF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26F8AA8A19AE16FE0084CBCF /* Lets Be FriendsTests */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AA8D19AE16FE0084CBCF /* Lets_Be_FriendsTests.swift */,
+				26F8AA8B19AE16FE0084CBCF /* Supporting Files */,
+			);
+			path = "Lets Be FriendsTests";
+			sourceTree = "<group>";
+		};
+		26F8AA8B19AE16FE0084CBCF /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AA8C19AE16FE0084CBCF /* Info.plist */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		26F8AA9A19AE17C70084CBCF /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				26F8AAA119AE19080084CBCF /* SystemConfiguration.framework */,
+				26F8AAA219AE19080084CBCF /* StoreKit.framework */,
+				26F8AAA319AE19080084CBCF /* Security.framework */,
+				26F8AAA419AE19080084CBCF /* QuartzCore.framework */,
+				26F8AAA519AE19080084CBCF /* MobileCoreServices.framework */,
+				26F8AAA619AE19080084CBCF /* libz.dylib */,
+				26F8AAA719AE19080084CBCF /* CoreLocation.framework */,
+				26F8AAA819AE19080084CBCF /* CFNetwork.framework */,
+				26F8AAA919AE19080084CBCF /* CoreGraphics.framework */,
+				26F8AAAA19AE19080084CBCF /* AudioToolbox.framework */,
+				26F8AA9B19AE18250084CBCF /* Bolts.framework */,
+				26F8AA9C19AE18250084CBCF /* Parse.framework */,
+				26F8AA9D19AE18250084CBCF /* ParseFacebookUtils.framework */,
+			);
+			name = Frameworks;
+			path = "Lets Be Friends";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		26F8AA7419AE16FD0084CBCF /* Lets Be Friends */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26F8AA9119AE16FE0084CBCF /* Build configuration list for PBXNativeTarget "Lets Be Friends" */;
+			buildPhases = (
+				26F8AA7119AE16FD0084CBCF /* Sources */,
+				26F8AA7219AE16FD0084CBCF /* Frameworks */,
+				26F8AA7319AE16FD0084CBCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Lets Be Friends";
+			productName = "Lets Be Friends";
+			productReference = 26F8AA7519AE16FD0084CBCF /* Lets Be Friends.app */;
+			productType = "com.apple.product-type.application";
+		};
+		26F8AA8619AE16FE0084CBCF /* Lets Be FriendsTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 26F8AA9419AE16FE0084CBCF /* Build configuration list for PBXNativeTarget "Lets Be FriendsTests" */;
+			buildPhases = (
+				26F8AA8319AE16FE0084CBCF /* Sources */,
+				26F8AA8419AE16FE0084CBCF /* Frameworks */,
+				26F8AA8519AE16FE0084CBCF /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				26F8AA8919AE16FE0084CBCF /* PBXTargetDependency */,
+			);
+			name = "Lets Be FriendsTests";
+			productName = "Lets Be FriendsTests";
+			productReference = 26F8AA8719AE16FE0084CBCF /* Lets Be FriendsTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		26F8AA6D19AE16FD0084CBCF /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0600;
+				ORGANIZATIONNAME = "Kalson Kalu";
+				TargetAttributes = {
+					26F8AA7419AE16FD0084CBCF = {
+						CreatedOnToolsVersion = 6.0;
+					};
+					26F8AA8619AE16FE0084CBCF = {
+						CreatedOnToolsVersion = 6.0;
+						TestTargetID = 26F8AA7419AE16FD0084CBCF;
+					};
+				};
+			};
+			buildConfigurationList = 26F8AA7019AE16FD0084CBCF /* Build configuration list for PBXProject "Lets Be Friends" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 26F8AA6C19AE16FD0084CBCF;
+			productRefGroup = 26F8AA7619AE16FD0084CBCF /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				26F8AA7419AE16FD0084CBCF /* Lets Be Friends */,
+				26F8AA8619AE16FE0084CBCF /* Lets Be FriendsTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		26F8AA7319AE16FD0084CBCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26F8AA8019AE16FD0084CBCF /* Main.storyboard in Resources */,
+				26F8AA8219AE16FD0084CBCF /* Images.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26F8AA8519AE16FE0084CBCF /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		26F8AA7119AE16FD0084CBCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26F8AA7D19AE16FD0084CBCF /* ViewController.swift in Sources */,
+				26F8AA7B19AE16FD0084CBCF /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		26F8AA8319AE16FE0084CBCF /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				26F8AA8E19AE16FE0084CBCF /* Lets_Be_FriendsTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		26F8AA8919AE16FE0084CBCF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 26F8AA7419AE16FD0084CBCF /* Lets Be Friends */;
+			targetProxy = 26F8AA8819AE16FE0084CBCF /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		26F8AA7E19AE16FD0084CBCF /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				26F8AA7F19AE16FD0084CBCF /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		26F8AA8F19AE16FE0084CBCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		26F8AA9019AE16FE0084CBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		26F8AA9219AE16FE0084CBCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lets",
+					Be,
+					Friends,
+					"$(PROJECT_DIR)/Lets",
+					Be,
+					Friends,
+				);
+				INFOPLIST_FILE = "Lets Be Friends/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lets Be Friends/Lets Be Friends-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		26F8AA9319AE16FE0084CBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Lets",
+					Be,
+					Friends,
+					"$(PROJECT_DIR)/Lets",
+					Be,
+					Friends,
+				);
+				INFOPLIST_FILE = "Lets Be Friends/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Lets Be Friends/Lets Be Friends-Bridging-Header.h";
+			};
+			name = Release;
+		};
+		26F8AA9519AE16FE0084CBCF /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Lets Be FriendsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lets Be Friends.app/Lets Be Friends";
+			};
+			name = Debug;
+		};
+		26F8AA9619AE16FE0084CBCF /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Lets Be FriendsTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Lets Be Friends.app/Lets Be Friends";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		26F8AA7019AE16FD0084CBCF /* Build configuration list for PBXProject "Lets Be Friends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26F8AA8F19AE16FE0084CBCF /* Debug */,
+				26F8AA9019AE16FE0084CBCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26F8AA9119AE16FE0084CBCF /* Build configuration list for PBXNativeTarget "Lets Be Friends" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26F8AA9219AE16FE0084CBCF /* Debug */,
+				26F8AA9319AE16FE0084CBCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		26F8AA9419AE16FE0084CBCF /* Build configuration list for PBXNativeTarget "Lets Be FriendsTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				26F8AA9519AE16FE0084CBCF /* Debug */,
+				26F8AA9619AE16FE0084CBCF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 26F8AA6D19AE16FD0084CBCF /* Project object */;
+}

@@ -1,27 +1,28 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="6206.8" systemVersion="13E28" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="rVU-k0-KVb">
     <dependencies>
+        <deployment defaultVersion="1808" identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7026.1"/>
     </dependencies>
     <scenes>
         <!--Face Kicks-->
         <scene sceneID="INX-7L-R32">
             <objects>
-                <tableViewController id="Mcx-oU-6Vf" customClass="FacesTVC" customModule="Swiftly_Parse" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="Mcx-oU-6Vf" customClass="FacesTVC" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="400" sectionHeaderHeight="22" sectionFooterHeight="22" id="JdU-sF-87J">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="480"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="320" id="ngn-A7-nfa" customClass="FaceCell" customModule="Swiftly_Parse" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="86" width="320" height="400"/>
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" rowHeight="320" id="ngn-A7-nfa" customClass="FaceCell">
+                                <rect key="frame" x="0.0" y="86" width="320" height="320"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ngn-A7-nfa" id="6Tk-3u-dEO">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="399"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ehk-iS-sFw">
-                                            <rect key="frame" x="10" y="8" width="300" height="300"/>
+                                            <rect key="frame" x="10" y="1" width="300" height="300"/>
                                         </imageView>
                                     </subviews>
                                 </tableViewCellContentView>
