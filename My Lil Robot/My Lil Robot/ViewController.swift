@@ -9,9 +9,10 @@
 import UIKit
 
 class ViewController: UIViewController {
+    // sub class is of the super class when created and methods are mostly ran on the instance, some on the superclass and subclass
                             
     override func viewDidLoad() {
-        super.viewDidLoad()
+        super.viewDidLoad() // called when the view is being created
         // Do any additional setup after loading the view, typically from a nib.
         
         var robotBody = UIView(frame: CGRectMake(0, 0, 320, 480))
