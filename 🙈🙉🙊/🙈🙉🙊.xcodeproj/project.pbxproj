@@ -13,6 +13,7 @@
 		26E5F18A19BF3C2E00280E90 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 26E5F18919BF3C2E00280E90 /* Images.xcassets */; };
 		26E5F19619BF3C2E00280E90 /* ______Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F19519BF3C2E00280E90 /* ______Tests.swift */; };
 		26E5F1A019BF3CED00280E90 /* 😎TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F19F19BF3CED00280E90 /* 😎TableViewController.swift */; };
+		26E5F1A219BF59B300280E90 /* 📭TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26E5F1A119BF59B300280E90 /* 📭TableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +37,7 @@
 		26E5F19419BF3C2E00280E90 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26E5F19519BF3C2E00280E90 /* ______Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "______Tests.swift"; sourceTree = "<group>"; };
 		26E5F19F19BF3CED00280E90 /* 😎TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "😎TableViewController.swift"; sourceTree = "<group>"; };
+		26E5F1A119BF59B300280E90 /* 📭TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "📭TableViewController.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				26E5F17F19BF3C2E00280E90 /* 🙈🙉🙊 */,
+				26E5F18019BF3C2E00280E90 /* Supporting Files */,
 				26E5F19219BF3C2E00280E90 /* 🙈🙉🙊Tests */,
 				26E5F17E19BF3C2E00280E90 /* Products */,
 			);
@@ -80,9 +83,9 @@
 				26E5F18219BF3C2E00280E90 /* AppDelegate.swift */,
 				26E5F18419BF3C2E00280E90 /* ViewController.swift */,
 				26E5F19F19BF3CED00280E90 /* 😎TableViewController.swift */,
+				26E5F1A119BF59B300280E90 /* 📭TableViewController.swift */,
 				26E5F18619BF3C2E00280E90 /* Main.storyboard */,
 				26E5F18919BF3C2E00280E90 /* Images.xcassets */,
-				26E5F18019BF3C2E00280E90 /* Supporting Files */,
 			);
 			path = "🙈🙉🙊";
 			sourceTree = "<group>";
@@ -93,6 +96,7 @@
 				26E5F18119BF3C2E00280E90 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			path = "🙈🙉🙊";
 			sourceTree = "<group>";
 		};
 		26E5F19219BF3C2E00280E90 /* 🙈🙉🙊Tests */ = {
@@ -214,6 +218,7 @@
 				26E5F18519BF3C2E00280E90 /* ViewController.swift in Sources */,
 				26E5F1A019BF3CED00280E90 /* 😎TableViewController.swift in Sources */,
 				26E5F18319BF3C2E00280E90 /* AppDelegate.swift in Sources */,
+				26E5F1A219BF59B300280E90 /* 📭TableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
