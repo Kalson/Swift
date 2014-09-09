@@ -71,7 +71,7 @@
                                             <rect key="frame" x="17" y="18" width="298" height="30"/>
                                         </variation>
                                     </textField>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqa-Lm-7cZ">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wqa-Lm-7cZ" customClass="🍺Button" customModule="___" customModuleProvider="target">
                                         <rect key="frame" x="-23" y="-15" width="46" height="30"/>
                                         <color key="backgroundColor" red="0.35862267641009071" green="1" blue="0.65132348035780374" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button">
@@ -113,6 +113,12 @@
                             </mask>
                         </variation>
                     </view>
+                    <connections>
+                        <outlet property="formButton" destination="Wqa-Lm-7cZ" id="dIU-D5-Ddd"/>
+                        <outlet property="formField" destination="Ael-as-4gv" id="f8V-A2-91m"/>
+                        <outlet property="formHolder" destination="86X-Tl-x5Q" id="mXE-JS-igx"/>
+                        <outlet property="messageTableView" destination="GQp-uM-SVb" id="syV-1Z-ams"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hEP-uG-39d" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

@@ -10,6 +10,12 @@ import UIKit
 
 class 📭TableViewController: UITableViewController {
 
+    @IBOutlet weak var messageTableView: UITableView!
+    
+    @IBOutlet weak var formHolder: UIView!
+    @IBOutlet weak var formField: UITextField!
+    @IBOutlet weak var formButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -18,6 +24,8 @@ class 📭TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        self.messageTableView = self.tableView
     }
 
     override func didReceiveMemoryWarning() {
