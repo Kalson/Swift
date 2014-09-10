@@ -38,19 +38,25 @@ class ChooseTVC: FriendsTVC {
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         println((self.navigationController?.presentingViewController as UINavigationController).viewControllers[0])
         
         // the UINavigation has a property called viewCOntroller that has an array and the index: 0 refers to the root view controller
         
-//        // this line refers to navigation controllers by returning FriendsTVC
-//        var myFriends = (self.navigationController?.presentingViewController as FriendsTVC).friends
-//        
-//        myFriends += [friends[indexPath.row]]
-//        
-//        // += is the same as myFriends.append
-//        
-//        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
-//        
+        // this line refers to navigation controllers by returning FriendsTVC
+        var myOldFriends = ((self.navigationController?.presentingViewController as UINavigationController).viewControllers[0] as FriendsTVC).friends
+        
+        // this is long way of myOldFriends
+        var presentingNavC = self.navigationController?.presentingViewController as UINavigationController
+        var myFriendsTVC = presentingNavC.viewControllers[0] as FriendsTVC
+        var myFriends = myFriendsTVC.friends
+        
+        myFriends += [friends[indexPath.row]]
+        
+        // += is the same as myFriends.append
+        
+        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+        
         
     }
 
