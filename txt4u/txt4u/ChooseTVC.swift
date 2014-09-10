@@ -9,16 +9,49 @@
 import UIKit
 
 class ChooseTVC: FriendsTVC {
+    
+    // everything that friendTVC does, ChooseTVC inherits it as long as we don't overide it
+    // this inherits the methods, but they have their own @property, its is own instance object
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        // query the user class
+        var friendQuery = PFUser.query()
+        friendQuery.findObjectsInBackgroundWithBlock { (users: [AnyObject]!, error: NSError!) -> Void in
+            // properties need to use self
+            self.friends = users as [PFUser]
+            self.tableView.reloadData()
+        }
+    }
+    
     @IBAction func cancelChoose(sender: AnyObject) {
         
         // we're dismissing the navigation controller b/c thats whats being presented
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        println((self.navigationController?.presentingViewController as UINavigationController).viewControllers[0])
+        
+        // the UINavigation has a property called viewCOntroller that has an array and the index: 0 refers to the root view controller
+        
+//        // this line refers to navigation controllers by returning FriendsTVC
+//        var myFriends = (self.navigationController?.presentingViewController as FriendsTVC).friends
+//        
+//        myFriends += [friends[indexPath.row]]
+//        
+//        // += is the same as myFriends.append
+//        
+//        self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
+//        
+        
     }
 
  

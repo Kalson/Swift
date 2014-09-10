@@ -16,6 +16,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        Parse.setApplicationId("Atsh49u6X552QfxtrNaQxNGGw2NYHZPpZhT6XncU", clientKey: "sRNq4mxTSxO2p1Gv4eVenmkzeBHkSkldjrO4EtwD")
+        PFUser.enableAutomaticUser()
+        
+        // these 3 lines creates a user
+        var installation = PFInstallation.currentInstallation()
+        installation["user"] = PFUser.currentUser()
+        // saving the installation
+        installation.saveInBackground()
+        
         return true
     }
 
