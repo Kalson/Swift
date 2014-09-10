@@ -59,6 +59,7 @@
                         <outlet property="formHolder" destination="kz4-0P-VAd" id="Uit-EW-9if"/>
                         <outlet property="messageField" destination="9Kg-uy-oP9" id="5Bw-Ni-cbR"/>
                         <outlet property="sendButton" destination="sKO-dP-u6p" id="dDP-DG-c0z"/>
+                        <outlet property="tableView" destination="L4b-0N-mqW" id="PwU-UV-fcZ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
