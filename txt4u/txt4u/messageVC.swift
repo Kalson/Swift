@@ -30,6 +30,13 @@ class messageVC: UIViewController {
         super.viewWillAppear(animated)
         
         conservation = defaults.arrayForKey(friend.username) as [PFObject]
+        
+        var messageQuery = PFQuery(className: "Message")
+        messageQuery.whereKey("sender", equalTo: PFUser.currentUser())
+        
+        messageQuery.findObjectsInBackgroundWithBlock { (messages: [AnyObject]!,error: NSError!) -> Void in
+            self.conservation = messages as [PFObject]
+        }
     }
 
     @IBAction func sendMessage(sender: AnyObject) {
