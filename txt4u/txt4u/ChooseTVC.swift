@@ -49,9 +49,10 @@ class ChooseTVC: FriendsTVC {
         // this is long way of myOldFriends
         var presentingNavC = self.navigationController?.presentingViewController as UINavigationController
         var myFriendsTVC = presentingNavC.viewControllers[0] as FriendsTVC
-        var myFriends = myFriendsTVC.friends
+//        var myFriends = myFriendsTVC.friends
+        // because of the swift pointer issue
         
-        myFriends += [friends[indexPath.row]]
+        myFriendsTVC.friends += [friends[indexPath.row]]
         
         // += is the same as myFriends.append
         

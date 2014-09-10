@@ -19,6 +19,7 @@ class messageVC: UIViewController {
     }
 
     @IBAction func sendMessage(sender: AnyObject) {
+        
     }
  
 
