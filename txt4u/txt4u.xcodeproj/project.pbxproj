@@ -130,9 +130,9 @@
 			isa = PBXGroup;
 			children = (
 				265CEC5B19C086840034273A /* AppDelegate.swift */,
-				2623D20619C08C29006BC418 /* ChooseTVC.swift */,
 				265CEC5D19C086840034273A /* messageVC.swift */,
 				2623D20419C08B68006BC418 /* FriendsTVC.swift */,
+				2623D20619C08C29006BC418 /* ChooseTVC.swift */,
 				265CEC5F19C086840034273A /* Main.storyboard */,
 				265CEC6219C086840034273A /* Images.xcassets */,
 				265CEC6419C086840034273A /* LaunchScreen.xib */,

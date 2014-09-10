@@ -99,14 +99,22 @@ class FriendsTVC: UITableViewController {
     }
     */
 
-    /*
+    
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue!, sender: AnyObject!) {
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject!) {
+        
+        // sender here is the cell we just tap
+        
+        if segue.identifier == "showConversation"{
+            // any segue that doesn't have an identifier will crash, unless every segue is named
+            var messageViewC = segue.destinationViewController as messageVC
+            messageViewC.friend = friends[self.tableView.indexPathForCell(sender as UITableViewCell)!.row]
+            // this method return an indexpath so no need to create one
+        }
         // Get the new view controller using [segue destinationViewController].
         // Pass the selected object to the new view controller.
     }
-    */
 
 }

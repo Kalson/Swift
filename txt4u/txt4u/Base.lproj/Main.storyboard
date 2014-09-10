@@ -38,7 +38,7 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sKO-dP-u6p">
-                                        <rect key="frame" x="237" y="18" width="59" height="30"/>
+                                        <rect key="frame" x="237" y="18" width="75" height="30"/>
                                         <color key="backgroundColor" red="0.47488199440000001" green="1" blue="0.45413589090000001" alpha="1" colorSpace="calibratedRGB"/>
                                         <state key="normal" title="Button">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -80,7 +80,7 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="vXZ-lx-hvc" kind="push" id="v88-yL-uxs"/>
+                                    <segue destination="vXZ-lx-hvc" kind="push" identifier="showConversation" id="v88-yL-uxs"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -93,7 +93,7 @@
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="wPx-Gz-eyD">
                             <color key="tintColor" red="0.35862267640000001" green="1" blue="0.65132348039999999" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
-                                <segue destination="ydb-qF-VLB" kind="modal" id="9a6-zN-98H"/>
+                                <segue destination="ydb-qF-VLB" kind="modal" identifier="chooseFriend" id="9a6-zN-98H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

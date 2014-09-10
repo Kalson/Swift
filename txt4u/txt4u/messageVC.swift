@@ -13,9 +13,23 @@ class messageVC: UIViewController {
     @IBOutlet weak var messageField: UITextField!
     @IBOutlet weak var sendButton: UIButton!
 
+    var friend: PFUser!
+    
+    var conservation: [PFObject]!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    
+    var defaults = NSUserDefaults.standardUserDefaults()
+
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        conservation = defaults.arrayForKey(friend.username) as [PFObject]
     }
 
     @IBAction func sendMessage(sender: AnyObject) {
