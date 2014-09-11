@@ -33,10 +33,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
         UIApplication.sharedApplication().registerForRemoteNotifications()
-
-        
-//        UIApplication.sharedApplication().applicationIconBadgeNumber = 2
-
         
         return true
     }
@@ -56,13 +52,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         println("userInfo = \(userInfo)")
         
-        var senderName = userInfo["sender"]["objectId"]
+//        var senderName = userInfo["sender"]["objectId"]
         
-        var localNotification = UILocalNotification()
-        localNotification.alertBody = "\(senderName) :" + userInfo["alert"]
-        localNotification.alertAction = "Reply"
+        var notification = userInfo["aps"] as NSDictionary
+        println("notification = \(notification)")
+        var alert = notification["alert"] as String
+        println("alert = \(alert)")
+        var sender = userInfo["sender"] as NSDictionary
+        println("sender = \(sender)")
+        var senderName = sender["objectId"] as String
+        println("senderName = \(senderName)")
         
-        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        UIApplication.sharedApplication().applicationIconBadgeNumber++
+        // badge goes up here
+        
+        /// when messageVC shows unread messages change badge count
+
+        if UIApplication.sharedApplication().applicationState == UIApplicationState.Background {
+            var localNotification = UILocalNotification()
+            localNotification.alertBody = "\(senderName) :" + alert
+            localNotification.alertAction = "Reply"
+            
+            UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
+        } else {
+        
+            var nC = NSNotificationCenter.defaultCenter()
+            // need to listen for it in 2 places
+            nC.postNotificationName("newMessage", object: nil, userInfo: userInfo)
+            // newMessage is being created here
+        }
+        
+
     }
     
 

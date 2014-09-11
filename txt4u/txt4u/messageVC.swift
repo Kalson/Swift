@@ -8,6 +8,11 @@
 
 import UIKit
 
+/// remove lines in tableview
+/// make 2 different bubble colors for messages per user
+/// have a tableView automatically start scrolled to bottom
+/// show timestamp below message
+
 class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UITextFieldDelegate {
     @IBOutlet weak var formHolder: UIView!
     @IBOutlet weak var messageField: UITextField!
@@ -35,7 +40,16 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         tableView.dataSource = self
         tableView.delegate = self
         
+        tableView.separatorColor = UIColor.clearColor()
+        
         messageField.delegate = self
+        
+        var nC = NSNotificationCenter.defaultCenter()
+        nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification!) -> Void in
+            
+            // update conversation and reload tableView
+        })
+        
         
     }
     

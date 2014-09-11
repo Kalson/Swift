@@ -37,6 +37,12 @@ class FriendsTVC: UITableViewController {
                     
                 }
             }
+            
+            var nC = NSNotificationCenter.defaultCenter()
+            nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification!) -> Void in
+                
+                // make friend have a different color if with unread message
+            })
          
         }
         
