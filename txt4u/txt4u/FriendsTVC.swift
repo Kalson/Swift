@@ -17,14 +17,16 @@ class FriendsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // grab the friends from Parse
+        // grabbing the friends from Parse
         var queryMe = PFUser.query()
         queryMe.whereKey("username", equalTo: PFUser.currentUser().username)
+        // includes all the other users data
         queryMe.includeKey("friends")
         
+        // first object [0] is me, friends is the key to get back the array of PFusers
         queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
             println(objects)
-            self.friends = objects as [PFUser]
+            self.friends = (objects as [PFUser])[0]["friends"] as [PFUser]
             self.tableView.reloadData()
 
         }
