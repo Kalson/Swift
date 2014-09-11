@@ -16,20 +16,31 @@ class FriendsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+     // anything ran here is also ran in the choose TVC b/c its a subclass of this class
+        println("class = \(NSStringFromClass(self.classForCoder))")
         
-        // grabbing the friends from Parse
-        var queryMe = PFUser.query()
-        queryMe.whereKey("username", equalTo: PFUser.currentUser().username)
-        // includes all the other users data
-        queryMe.includeKey("friends")
-        
-        // first object [0] is me, friends is the key to get back the array of PFusers
-        queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-            println(objects)
-            self.friends = (objects as [PFUser])[0]["friends"] as [PFUser]
-            self.tableView.reloadData()
-
+        // or reflect(self).summary
+        if NSStringFromClass(self.classForCoder) == "txt4u.FriendsTVC" {
+            
+            if PFUser.currentUser()["friends"] != nil {
+                // grabbing the friends from Parse
+                var queryMe = PFUser.query()
+                queryMe.whereKey("username", equalTo: PFUser.currentUser().username)
+                // includes all the other users data
+                queryMe.includeKey("friend")
+                
+                // first object [0] is me, friends is the key to get back the array of PFusers
+                queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+                    println(objects)
+                    self.friends = objects[0]["friend"] as [PFUser] // this is an array of PFUsers
+                    self.tableView.reloadData()
+                    
+                }
+            }
+         
         }
+        
+   
         
         
         // Uncomment the following line to preserve selection between presentations

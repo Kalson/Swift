@@ -63,8 +63,12 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
 //        conservation = defaults.arrayForKey(friend.username) as [PFObject]!
         
         var messageQuery = PFQuery(className: "Message")
-        messageQuery.whereKey("sender", equalTo: PFUser.currentUser())
-        messageQuery.whereKey("receiver", equalTo: friend)
+        
+        // when u run ur device it creates a new user
+        
+        // setting up an array of possible relations
+        var possibleRelations = [PFUser.currentUser().username + friend.username, friend.username + PFUser.currentUser().username]
+        messageQuery.whereKey("relation", containedIn: possibleRelations)
 
         messageQuery.findObjectsInBackgroundWithBlock { (messages: [AnyObject]!,error: NSError!) -> Void in
             
@@ -92,21 +96,43 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     @IBAction func sendMessage(sender: AnyObject) {
         
         messageField.resignFirstResponder()
-        messageField.text = ""
+        
+      
         
         // PFobject is built like a dictionary so it has keys and values
         
-        // created the receiver and sender here
+        // created the receiver and sender here & other columns within Parse
         var message = PFObject(className: "Message")
         message["sender"] = PFUser.currentUser()
         message["receiver"] = friend
         message["content"] = messageField.text
         message["relation"] = PFUser.currentUser().username + friend.username
+        message["read"] = false
+        
+          println("this is the message \(message)")
+        // jo + nick or nick + jo
+        // have to build query to get messages, unless u build a relationship
         
         conversation.append(message)
         
         message.saveInBackground()
         tableView.reloadData()
+        
+        // now to push to another device
+        var deviceQuery = PFInstallation.query()
+        // to find in a specific device a specific user
+        deviceQuery.whereKey("user", equalTo: friend)
+        
+        var data = NSDictionary(objects: [messageField.text], forKeys: ["alert","sender"])
+        
+        // running a push based on the device
+        var push = PFPush()
+//        push.setMessage(messageField.text)
+        push.setQuery(deviceQuery)
+        push.setData(data)
+        push.sendPushInBackground() // send push async
+        
+        messageField.text = ""
 
     
     }

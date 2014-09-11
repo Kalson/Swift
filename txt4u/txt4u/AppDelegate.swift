@@ -32,10 +32,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
-        UIApplication.sharedApplication().applicationIconBadgeNumber = 2
+        UIApplication.sharedApplication().registerForRemoteNotifications()
+
+        
+//        UIApplication.sharedApplication().applicationIconBadgeNumber = 2
+
         
         return true
     }
+    
+    func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
+        var currentInstallation = PFInstallation.currentInstallation()
+        currentInstallation.setDeviceTokenFromData(deviceToken)
+        currentInstallation.saveInBackground()
+        
+        // heidi code
+//        var device = PFInstallation.currentInstallation()
+//        device["user"] = PFUser.currentUser()
+//        device.saveInBackground() //keep pinging it repeatedly... whereas .saveEventually does something different
+    }
+    
+    func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
+        
+        println("userInfo = \(userInfo)")
+    }
+    
 
     func applicationWillResignActive(application: UIApplication) {
         // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
