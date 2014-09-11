@@ -26,6 +26,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // saving the installation
         installation.saveInBackground()
         
+        // for the notification badge
+        var types = UIUserNotificationType.Sound | UIUserNotificationType.Badge | UIUserNotificationType.Alert
+        var notificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        
+        UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
+        
+        UIApplication.sharedApplication().applicationIconBadgeNumber = 2
+        
         return true
     }
 
