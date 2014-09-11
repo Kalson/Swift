@@ -55,6 +55,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
         println("userInfo = \(userInfo)")
+        
+        var senderName = userInfo["sender"]["objectId"]
+        
+        var localNotification = UILocalNotification()
+        localNotification.alertBody = "\(senderName) :" + userInfo["alert"]
+        localNotification.alertAction = "Reply"
+        
+        UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
     }
     
 

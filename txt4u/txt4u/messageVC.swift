@@ -123,7 +123,8 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         // to find in a specific device a specific user
         deviceQuery.whereKey("user", equalTo: friend)
         
-        var data = NSDictionary(objects: [messageField.text], forKeys: ["alert","sender"])
+        // passing through data that we log out (i think)
+        var data = NSDictionary(objects: [messageField.text,friend], forKeys: ["alert","sender"])
         
         // running a push based on the device
         var push = PFPush()
