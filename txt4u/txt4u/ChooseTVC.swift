@@ -56,6 +56,13 @@ class ChooseTVC: FriendsTVC {
         
         // += is the same as myFriends.append
         
+        // saving the friends to Parse as an array of users (as a one to many relationship)
+        var user = PFUser.currentUser()
+        user["friend"] = myFriendsTVC.friends
+        user.saveInBackground()
+        
+        // now we need to get the friends array back out
+        
         self.navigationController?.dismissViewControllerAnimated(true, completion: nil)
         
         

@@ -16,7 +16,20 @@ class FriendsTVC: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        // grab the friends from Parse
+        var queryMe = PFUser.query()
+        queryMe.whereKey("username", equalTo: PFUser.currentUser().username)
+        queryMe.includeKey("friends")
+        
+        queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
+            println(objects)
+            self.friends = objects as [PFUser]
+            self.tableView.reloadData()
 
+        }
+        
+        
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
