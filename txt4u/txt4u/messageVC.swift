@@ -58,9 +58,11 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as UITableViewCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as MessageCell
         
-        cell.textLabel?.text = conversation[indexPath.row]["content"] as String?
+        cell.messageInfo = conversation[indexPath.row]
+        
+//        cell.textLabel?.text = conversation[indexPath.row]["content"] as String?
         return cell
     }
     
@@ -90,7 +92,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
                 self.conversation = messages as [PFObject]
         
                 
-                self.tableView.reloadData()
+                 self.tableView.reloadData()
                 
 //                SIndexPath* ipath = [NSIndexPath indexPathForRow: cells_count-1 inSection: sections_count-1];
 //                [tableView scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];

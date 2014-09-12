@@ -24,6 +24,7 @@
 		265CEC6319C086840034273A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 265CEC6219C086840034273A /* Images.xcassets */; };
 		265CEC6619C086840034273A /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 265CEC6419C086840034273A /* LaunchScreen.xib */; };
 		265CEC7219C086840034273A /* txt4uTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 265CEC7119C086840034273A /* txt4uTests.swift */; };
+		26CF0FFC19C36DAB004C4F58 /* MessageCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26CF0FFB19C36DAB004C4F58 /* MessageCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		265CEC6B19C086840034273A /* txt4uTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = txt4uTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		265CEC7019C086840034273A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		265CEC7119C086840034273A /* txt4uTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = txt4uTests.swift; sourceTree = "<group>"; };
+		26CF0FFB19C36DAB004C4F58 /* MessageCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessageCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -132,6 +134,7 @@
 				265CEC5B19C086840034273A /* AppDelegate.swift */,
 				2623D20419C08B68006BC418 /* FriendsTVC.swift */,
 				265CEC5D19C086840034273A /* messageVC.swift */,
+				26CF0FFB19C36DAB004C4F58 /* MessageCell.swift */,
 				2623D20619C08C29006BC418 /* ChooseTVC.swift */,
 				265CEC5F19C086840034273A /* Main.storyboard */,
 				265CEC6219C086840034273A /* Images.xcassets */,
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2623D20719C08C29006BC418 /* ChooseTVC.swift in Sources */,
+				26CF0FFC19C36DAB004C4F58 /* MessageCell.swift in Sources */,
 				265CEC5E19C086840034273A /* messageVC.swift in Sources */,
 				265CEC5C19C086840034273A /* AppDelegate.swift in Sources */,
 				2623D20519C08B68006BC418 /* FriendsTVC.swift in Sources */,
