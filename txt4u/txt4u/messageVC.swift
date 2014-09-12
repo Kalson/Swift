@@ -88,7 +88,12 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
             
             if messages.count > 0 {
                 self.conversation = messages as [PFObject]
+        
+                
                 self.tableView.reloadData()
+                
+//                SIndexPath* ipath = [NSIndexPath indexPathForRow: cells_count-1 inSection: sections_count-1];
+//                [tableView scrollToRowAtIndexPath: ipath atScrollPosition: UITableViewScrollPositionTop animated: YES];
             }
         }
     }
@@ -120,6 +125,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         message["sender"] = PFUser.currentUser()
         message["receiver"] = friend
         message["content"] = messageField.text
+        // relation is being created by both the sender or receiver
         message["relation"] = PFUser.currentUser().username + friend.username
         message["read"] = false
         
