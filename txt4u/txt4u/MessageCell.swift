@@ -35,7 +35,7 @@ class MessageCell: UITableViewCell {
             }
             
             
-            
+            // connects the messageLabel to the content that was created before
             messageLabel.text = info["content"] as? String
             
             var formatter = NSDateFormatter()
