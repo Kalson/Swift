@@ -27,6 +27,38 @@ class ViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.blueColor()
         
+        // the gradient can have more than one colors
+        
+        // first color
+        var topColor = UIColor(red: 0.910, green: 0.976, blue: 0.333, alpha: 1.0)
+        
+        // second color
+        var bottomcColor = UIColor(red: 0.973, green: 0.204, blue: 0.333, alpha: 1.0)
+        
+        // array of colors in gradient
+        var gradientColors:[AnyObject] = [topColor.CGColor, bottomcColor.CGColor]
+        
+        // array of locations for colors in gradient
+        var gradientLocations = [0.0,1.0]
+        
+        // gradient layer
+        var gradientLayer = CAGradientLayer()
+        gradientLayer.frame = self.view.frame
+        
+        gradientLayer.startPoint = CGPointMake(0.6, -0.1)
+        gradientLayer.endPoint = CGPointMake(0.4, 1.1)
+
+        
+        
+        // add colors to gradient layer
+        gradientLayer.colors = gradientColors
+        
+        // add locatios to gradient color
+        gradientLayer.locations = gradientLocations
+        
+        // add gradient to view layer as background
+        self.view.layer.addSublayer(gradientLayer)
+        
 //        var i = buttons.count
         for i in 0..<buttons.count {
             
@@ -34,23 +66,24 @@ class ViewController: UIViewController {
             var size:CGFloat = 100.0 // bc u can't divide a float from a int
             
             var x = (SCREEN_WIDTH / 2.0) - (size / 2.0)
-            var y = (SCREEN_HEIGTH / 2.0) - (size / 2.0) - (CGFloat(i - 1) * (size + 20)) // an actual number can be any time of primitive type based on the situation like the 20 or 1
+            var y = (SCREEN_HEIGTH / 2.0) - (size / 2.0) + (CGFloat(i - 1) * (size + 20)) // an actual number can be any time of primitive type based on the situation like the 20 or 1
             
             button.frame = CGRectMake(x, y, size, size)
             button.layer.cornerRadius = size / 2.0
-            button.backgroundColor = UIColor(red: 0.349, green: 0.875, blue: 0.729, alpha: 1.0) //class methods look like this now
+            button.backgroundColor = UIColor.whiteColor()
+//            button.backgroundColor = UIColor(red: 0.349, green: 0.875, blue: 0.729, alpha: 1.0) //class methods look like this now
+            
+            button.tag = i // so we know which button were tapping
+            button.addTarget(self, action: Selector("buttonTapped:"), forControlEvents: .TouchUpInside)
+            
             self.view .addSubview(button)
-            
-            println(button)
-            
-            // the gradient can have more than two colors
-            
-            var topColor = 
-            
-           
         }
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func buttonTapped(button: UIButton){
+        println(button.tag)
     }
 
     override func didReceiveMemoryWarning() {
