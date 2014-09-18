@@ -23,6 +23,8 @@ class ViewController: UIViewController {
     var currentScore = 0
     var buttonToTap = 0
     
+    var player = GKLocalPlayer.localPlayer()
+    
     let buttons = [UIButton(),UIButton(),UIButton()]
     // the array is much faster since the array knows that their only buttons in it
     
@@ -100,6 +102,21 @@ class ViewController: UIViewController {
         }
         
         
+        // add a listener for autheication change
+        var nc = NSNotificationCenter.defaultCenter()
+        nc.addObserver(self, selector: Selector("authChanged"), name: GKPlayerAuthenticationDidChangeNotificationName, object: nil)
+        
+        if player.authenticated == false {
+            // closure is a block
+            // authenticatehandeler(for gameCenter) is a block
+            
+            player.authenticateHandler = { (viewController, error) -> Void in
+                if viewController != nil {
+                    self.presentViewController(viewController, animated: true, completion: nil)
+                }
+            }
+        }
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -165,6 +182,10 @@ class ViewController: UIViewController {
         }
         
         resetTimerWithSpeed(10)
+    }
+    
+    func submitScore(){
+        var player = GKPlayer()
     }
     
     override func didReceiveMemoryWarning() {
