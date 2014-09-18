@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import GameKit
 
 let SCREEN_HEIGTH = UIScreen.mainScreen().bounds.size.height
 let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
@@ -95,7 +96,7 @@ class ViewController: UIViewController {
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
         // nano per sec, 64 bit int with 3 seconds
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
-            //            self.runLevel()
+                        self.runLevel()
         }
         
         
@@ -109,6 +110,7 @@ class ViewController: UIViewController {
         
         timer = NSTimer.scheduledTimerWithTimeInterval(speed, target: self, selector: Selector("timerDone"), userInfo: nil, repeats: false)
         
+        timerBar.layer.removeAllAnimations()
         timerBar.frame.size.width = SCREEN_WIDTH
         
         // animates the timer bar
@@ -134,7 +136,15 @@ class ViewController: UIViewController {
             currentScore++
             runLevel()
         } else {
-            println("fail")
+            var time = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
+            // nano per sec, 64 bit int with 3 seconds
+            dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+                self.runLevel()
+            }
+            
+            println("Fail")
+            currentScore = 0
+            // when u fail
         }
     }
     
@@ -143,9 +153,16 @@ class ViewController: UIViewController {
         var button = buttons[buttonToTap]
         button.alpha = 1.0
         
-        UIView.animateWithDuration(0.4, animations: { () -> Void in
+//        UIView.animateWithDuration(0.4, animations: { () -> Void in
+//            button.alpha = 0.6
+//        })
+        UIView.animateWithDuration(1.0, delay: 0, options: .CurveLinear, animations: { () -> Void in
+//            self.timerBar.frame.size.width = 0
             button.alpha = 0.6
-        })
+
+            }) { (succeeded:Bool) -> Void in
+                
+        }
         
         resetTimerWithSpeed(10)
     }
