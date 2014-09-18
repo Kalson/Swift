@@ -8,20 +8,25 @@
 
 import UIKit
 
+let SCREEN_HEIGTH = UIScreen.mainScreen().bounds.size.height
+let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+
 class ViewController: UIViewController {
     
-    let timerBar = UIView()
-    let SCREEN_HEIGTH = UIScreen.mainScreen().bounds.size.height
-    let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+  
     var timer: NSTimer?
+    let timerBar = UIView()
 
+    var scoreLabel = UILabel()
+    
+    var currentScore = 0
+    var buttonToTap = 0
     
     var buttons = [UIButton(),UIButton(),UIButton()]
     // the array is much faster since the array knows that their only buttons in it
     
 //    var buttons = [UIButton](count: 3, repeatedValue: UIButton()) // a forloop within an array (didn't work)
     
-    var scoreLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,6 +89,8 @@ class ViewController: UIViewController {
         timerBar.frame = CGRectMake(0, 0, 0, 6)
         self.view.addSubview(timerBar)
         
+        self.resetTimerWithSpeed(5)
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -92,15 +99,15 @@ class ViewController: UIViewController {
         
         if timer != nil { timer!.invalidate() } // only running the invalidate if the timer is actually there
         
-        timer = NSTimer(timeInterval: speed, target: self, selector: Selector("timerDone"), userInfo: nil, repeats: false)
+        timer = NSTimer.scheduledTimerWithTimeInterval(speed, target: self, selector: Selector("timerDone"), userInfo: nil, repeats: false)
         
         timerBar.frame.size.width = SCREEN_WIDTH
         
+        // animates the timer bar
         UIView.animateWithDuration(speed, animations: { () -> Void in
-            
+            self.timerBar.frame.size.width = 0
         })
         
-    
     }
     
     func timerDone() {
