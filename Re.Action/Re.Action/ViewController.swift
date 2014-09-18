@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     let timerBar = UIView()
     let SCREEN_HEIGTH = UIScreen.mainScreen().bounds.size.height
     let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
+    var timer: NSTimer?
 
     
     var buttons = [UIButton(),UIButton(),UIButton()]
@@ -80,6 +81,12 @@ class ViewController: UIViewController {
         }
         
         // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    func resetTimerWithSpeed(speed: Int){
+        timer.invalidate() // stops the timer
+        
+        timer.tim
     }
     
     func buttonTapped(button: UIButton){
