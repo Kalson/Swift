@@ -24,6 +24,7 @@ class ViewController: UIViewController {
     var buttonToTap = 0
     
     var player = GKLocalPlayer.localPlayer()
+    var allLeaderboards: [String:GKLeaderboard] = Dictionary()
     
     let buttons = [UIButton(),UIButton(),UIButton()]
     // the array is much faster since the array knows that their only buttons in it
@@ -173,6 +174,8 @@ class ViewController: UIViewController {
 //        UIView.animateWithDuration(0.4, animations: { () -> Void in
 //            button.alpha = 0.6
 //        })
+        
+     //   if last part parameter of the block is outside, if only one parameter u don't need ()
         UIView.animateWithDuration(1.0, delay: 0, options: .CurveLinear, animations: { () -> Void in
 //            self.timerBar.frame.size.width = 0
             button.alpha = 0.6
@@ -184,8 +187,30 @@ class ViewController: UIViewController {
         resetTimerWithSpeed(10)
     }
     
+    func authChanged(){
+        GKLeaderboard.loadLeaderboardsWithCompletionHandler { (leaderBoards, error) -> Void in
+            
+            for leaderboard in leaderBoards as [GKLeaderboard] {
+                // before it was just an array of any object, now its an array of GKleaderboard
+                var identifier = leaderboard.identifier
+                
+                // setting the leaderboard as a value based on this key
+                self.allLeaderboards[identifier] = leaderboard
+            }
+            
+        }
+    }
+    
     func submitScore(){
-        var player = GKPlayer()
+//        var player = GKPlayer()
+        
+        var scoreReporter = GKScore(leaderboardIdentifier: "total_taps")
+        scoreReporter.value = Int64(currentScore)
+        scoreReporter.context = 0
+        
+        GKScore.reportScores([scoreReporter], withCompletionHandler: { (error) -> Void in
+            println("score reported")
+        })
     }
     
     override func didReceiveMemoryWarning() {
