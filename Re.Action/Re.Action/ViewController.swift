@@ -13,21 +13,21 @@ let SCREEN_WIDTH = UIScreen.mainScreen().bounds.size.width
 
 class ViewController: UIViewController {
     
-  
+    
     var timer: NSTimer?
     let timerBar = UIView()
-
-    var scoreLabel = UILabel()
+    
+    let scoreLabel = UILabel()
     
     var currentScore = 0
     var buttonToTap = 0
     
-    var buttons = [UIButton(),UIButton(),UIButton()]
+    let buttons = [UIButton(),UIButton(),UIButton()]
     // the array is much faster since the array knows that their only buttons in it
     
-//    var buttons = [UIButton](count: 3, repeatedValue: UIButton()) // a forloop within an array (didn't work)
+    //    var buttons = [UIButton](count: 3, repeatedValue: UIButton()) // a forloop within an array (didn't work)
     
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -53,7 +53,7 @@ class ViewController: UIViewController {
         
         gradientLayer.startPoint = CGPointMake(0.6, -0.1)
         gradientLayer.endPoint = CGPointMake(0.4, 1.1)
-
+        
         
         
         // add colors to gradient layer
@@ -65,7 +65,7 @@ class ViewController: UIViewController {
         // add gradient to view layer as background
         self.view.layer.addSublayer(gradientLayer)
         
-//        var i = buttons.count
+        //        var i = buttons.count
         for i in 0..<buttons.count {
             
             var button = buttons[i]
@@ -74,10 +74,11 @@ class ViewController: UIViewController {
             var x = (SCREEN_WIDTH / 2.0) - (size / 2.0)
             var y = (SCREEN_HEIGTH / 2.0) - (size / 2.0) + (CGFloat(i - 1) * (size + 20)) // an actual number can be any time of primitive type based on the situation like the 20 or 1
             
+            button.alpha = 0.6
             button.frame = CGRectMake(x, y, size, size)
             button.layer.cornerRadius = size / 2.0
             button.backgroundColor = UIColor.whiteColor()
-//            button.backgroundColor = UIColor(red: 0.349, green: 0.875, blue: 0.729, alpha: 1.0) //class methods look like this now
+            //            button.backgroundColor = UIColor(red: 0.349, green: 0.875, blue: 0.729, alpha: 1.0) //class methods look like this now
             
             button.tag = i // so we know which button were tapping
             button.addTarget(self, action: Selector("buttonTapped:"), forControlEvents: .TouchUpInside)
@@ -89,13 +90,20 @@ class ViewController: UIViewController {
         timerBar.frame = CGRectMake(0, 0, 0, 6)
         self.view.addSubview(timerBar)
         
-        self.resetTimerWithSpeed(5)
+        //        self.resetTimerWithSpeed(5)
+        
+        var time = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
+        // nano per sec, 64 bit int with 3 seconds
+        dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
+            //            self.runLevel()
+        }
+        
         
         // Do any additional setup after loading the view, typically from a nib.
     }
     
     func resetTimerWithSpeed(speed: Double){
-//        timer.invalidate() // stops the timer
+        //        timer.invalidate() // stops the timer
         
         if timer != nil { timer!.invalidate() } // only running the invalidate if the timer is actually there
         
@@ -108,21 +116,45 @@ class ViewController: UIViewController {
             self.timerBar.frame.size.width = 0
         })
         
+        UIView.animateWithDuration(speed, delay: 0, options: .CurveLinear, animations: { () -> Void in
+            self.timerBar.frame.size.width = 0
+            }) { (succeeded:Bool) -> Void in
+                
+        }
     }
     
     func timerDone() {
-        
+        println("game over")
     }
     
     func buttonTapped(button: UIButton){
         println(button.tag)
+        
+        if buttonToTap == button.tag {
+            currentScore++
+            runLevel()
+        } else {
+            println("fail")
+        }
     }
-
+    
+    func runLevel(){
+        buttonToTap = Int(arc4random_uniform(3)) // b/c it returns a unsigned int that y were converting it to a Int
+        var button = buttons[buttonToTap]
+        button.alpha = 1.0
+        
+        UIView.animateWithDuration(0.4, animations: { () -> Void in
+            button.alpha = 0.6
+        })
+        
+        resetTimerWithSpeed(10)
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-
+    
+    
 }
 
