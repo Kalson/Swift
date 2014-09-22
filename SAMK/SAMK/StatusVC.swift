@@ -9,6 +9,12 @@
 import UIKit
 
 class StatusVC: UIViewController {
+    
+    let player1HP = UIView()
+    let player2HP = UIView()
+    
+    let timelabel = UILabel()
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
