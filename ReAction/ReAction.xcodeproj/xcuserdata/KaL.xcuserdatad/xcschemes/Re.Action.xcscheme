@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26D91D5819CB1CFC00A8FEC1"
-               BuildableName = "Re.Action.app"
-               BlueprintName = "Re.Action"
-               ReferencedContainer = "container:Re.Action.xcodeproj">
+               BuildableName = "ReAction.app"
+               BlueprintName = "ReAction"
+               ReferencedContainer = "container:ReAction.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
          <BuildActionEntry
@@ -29,9 +29,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26D91D6D19CB1CFC00A8FEC1"
-               BuildableName = "Re.ActionTests.xctest"
-               BlueprintName = "Re.ActionTests"
-               ReferencedContainer = "container:Re.Action.xcodeproj">
+               BuildableName = "ReActionTests.xctest"
+               BlueprintName = "ReActionTests"
+               ReferencedContainer = "container:ReAction.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -47,9 +47,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "26D91D6D19CB1CFC00A8FEC1"
-               BuildableName = "Re.ActionTests.xctest"
-               BlueprintName = "Re.ActionTests"
-               ReferencedContainer = "container:Re.Action.xcodeproj">
+               BuildableName = "ReActionTests.xctest"
+               BlueprintName = "ReActionTests"
+               ReferencedContainer = "container:ReAction.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -57,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26D91D5819CB1CFC00A8FEC1"
-            BuildableName = "Re.Action.app"
-            BlueprintName = "Re.Action"
-            ReferencedContainer = "container:Re.Action.xcodeproj">
+            BuildableName = "ReAction.app"
+            BlueprintName = "ReAction"
+            ReferencedContainer = "container:ReAction.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </TestAction>
@@ -76,9 +76,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26D91D5819CB1CFC00A8FEC1"
-            BuildableName = "Re.Action.app"
-            BlueprintName = "Re.Action"
-            ReferencedContainer = "container:Re.Action.xcodeproj">
+            BuildableName = "ReAction.app"
+            BlueprintName = "ReAction"
+            ReferencedContainer = "container:ReAction.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -94,9 +94,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "26D91D5819CB1CFC00A8FEC1"
-            BuildableName = "Re.Action.app"
-            BlueprintName = "Re.Action"
-            ReferencedContainer = "container:Re.Action.xcodeproj">
+            BuildableName = "ReAction.app"
+            BlueprintName = "ReAction"
+            ReferencedContainer = "container:ReAction.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>

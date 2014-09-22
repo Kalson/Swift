@@ -35,7 +35,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = UIColor.blueColor()
+//        self.view.backgroundColor = UIColor.blueColor()
         
         // the gradient can have more than one colors
         
@@ -57,8 +57,6 @@ class ViewController: UIViewController {
         
         gradientLayer.startPoint = CGPointMake(0.6, -0.1)
         gradientLayer.endPoint = CGPointMake(0.4, 1.1)
-        
-        
         
         // add colors to gradient layer
         gradientLayer.colors = gradientColors
@@ -96,6 +94,7 @@ class ViewController: UIViewController {
         
         //        self.resetTimerWithSpeed(5)
         
+        //dispatch is to delay the start time
         var time = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
         // nano per sec, 64 bit int with 3 seconds
         dispatch_after(time, dispatch_get_main_queue()) { () -> Void in
@@ -152,7 +151,10 @@ class ViewController: UIViewController {
         
         if buttonToTap == button.tag {
             currentScore++
+            
+            checkAchievement()
             runLevel()
+            
         } else {
             var time = dispatch_time(DISPATCH_TIME_NOW, Int64(3.0 * Double(NSEC_PER_SEC)))
             // nano per sec, 64 bit int with 3 seconds
@@ -160,6 +162,7 @@ class ViewController: UIViewController {
                 self.runLevel()
             }
             
+            submitScore()
             println("Fail")
             currentScore = 0
             // when u fail
@@ -176,7 +179,7 @@ class ViewController: UIViewController {
 //        })
         
      //   if last part parameter of the block is outside, if only one parameter u don't need ()
-        UIView.animateWithDuration(1.0, delay: 0, options: .CurveLinear, animations: { () -> Void in
+        UIView.animateWithDuration(1.0, delay: 0, options: .AllowUserInteraction, animations: { () -> Void in
 //            self.timerBar.frame.size.width = 0
             button.alpha = 0.6
 
@@ -188,6 +191,9 @@ class ViewController: UIViewController {
     }
     
     func authChanged(){
+        
+        if player.authenticated == false {return}
+            
         GKLeaderboard.loadLeaderboardsWithCompletionHandler { (leaderBoards, error) -> Void in
             
             for leaderboard in leaderBoards as [GKLeaderboard] {
@@ -211,6 +217,19 @@ class ViewController: UIViewController {
         GKScore.reportScores([scoreReporter], withCompletionHandler: { (error) -> Void in
             println("score reported")
         })
+    }
+    
+    func checkAchievement(){
+        if currentScore >= 5 {
+            var score50 = GKAchievement(identifier: "score_50")
+            score50.percentComplete = 100.0
+            score50.showsCompletionBanner = true
+            
+            GKAchievement.reportAchievements([score50], withCompletionHandler: { (error) -> Void in
+                
+                println("achievement sent")
+            })
+        }
     }
     
     override func didReceiveMemoryWarning() {
