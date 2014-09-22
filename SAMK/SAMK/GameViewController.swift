@@ -9,6 +9,7 @@
 import UIKit
 import SpriteKit
 
+// saves the game in its state
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
@@ -26,6 +27,9 @@ extension SKNode {
 }
 
 class GameViewController: UIViewController {
+    
+    let statusViewC = StatusVC()
+    let controlsViewC = ControlsVC()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -44,6 +48,10 @@ class GameViewController: UIViewController {
             
             skView.presentScene(scene)
         }
+        
+        self.view.addSubview(statusViewC.view)
+        self.view.addSubview(controlsViewC.view)
+
     }
 
     override func shouldAutorotate() -> Bool {

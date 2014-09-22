@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2643CF4E19D06E7A00D390B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643CF4D19D06E7A00D390B8 /* Constants.swift */; };
 		26D8F72019D0650100356F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F71F19D0650100356F56 /* AppDelegate.swift */; };
 		26D8F72219D0650100356F56 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26D8F72119D0650100356F56 /* GameScene.sks */; };
 		26D8F72419D0650100356F56 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F72319D0650100356F56 /* GameScene.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2643CF4D19D06E7A00D390B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		26D8F71A19D0650100356F56 /* SAMK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAMK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D8F71E19D0650100356F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D8F71F19D0650100356F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -89,6 +91,7 @@
 		26D8F71C19D0650100356F56 /* SAMK */ = {
 			isa = PBXGroup;
 			children = (
+				2643CF4D19D06E7A00D390B8 /* Constants.swift */,
 				26D8F74319D0673F00356F56 /* Character.swift */,
 				26D8F74519D0678700356F56 /* StatusVC.swift */,
 				26D8F74719D067BC00356F56 /* ControlsVC.swift */,
@@ -238,6 +241,7 @@
 				26D8F74A19D0680900356F56 /* PlayerConnect.swift in Sources */,
 				26D8F72019D0650100356F56 /* AppDelegate.swift in Sources */,
 				26D8F74419D0673F00356F56 /* Character.swift in Sources */,
+				2643CF4E19D06E7A00D390B8 /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +433,7 @@
 				26D8F73F19D0650100356F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		26D8F74019D0650100356F56 /* Build configuration list for PBXNativeTarget "SAMKTests" */ = {
 			isa = XCConfigurationList;
@@ -437,6 +442,7 @@
 				26D8F74219D0650100356F56 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

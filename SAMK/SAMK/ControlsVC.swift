@@ -14,6 +14,9 @@ class ControlsVC: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        
+        self.view.frame = CGRectMake(0, SCREEN_HEIGHT - 50, SCREEN_WIDTH, 50)
+        self.view.backgroundColor = UIColor.redColor()
     }
 
     override func didReceiveMemoryWarning() {

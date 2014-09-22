@@ -12,6 +12,9 @@ class StatusVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50)
+        self.view.backgroundColor = UIColor.redColor()
 
         // Do any additional setup after loading the view.
     }
