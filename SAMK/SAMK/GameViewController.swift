@@ -58,6 +58,9 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
 
         }
         
+     playerConnect.browser.delegate = self
+
+        
         var findFriendsButton = UIButton(frame: CGRectMake(0, 0, 200, 100))
         findFriendsButton.layer.cornerRadius = 50
         findFriendsButton.setTitle("Find Friends", forState: .Normal)
@@ -66,6 +69,8 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         findFriendsButton.center = self.view.center
         findFriendsButton.addTarget(self, action: Selector("findFriends"), forControlEvents: .TouchUpInside)
         self.view.addSubview(findFriendsButton)
+        
+        controlsViewC.playerConnect = playerConnect
         
         
 //        self.view.addSubview(statusViewC.view)
@@ -80,22 +85,23 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
 
     func startGame(){
         
-        func browserViewControllerDidFinish(
-            browserViewController: MCBrowserViewController!)  {
-                // Called when the browser view controller is dismissed (ie the Done
-                // button was tapped)
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        
-        func browserViewControllerWasCancelled(
-            browserViewController: MCBrowserViewController!)  {
-                // Called when the browser view controller is cancelled
-                
-                self.dismissViewControllerAnimated(true, completion: nil)
-        }
-        
     }
+    
+    func browserViewControllerDidFinish(
+        browserViewController: MCBrowserViewController!)  {
+            // Called when the browser view controller is dismissed (ie the Done
+            // button was tapped)
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
+    func browserViewControllerWasCancelled(
+        browserViewController: MCBrowserViewController!)  {
+            // Called when the browser view controller is cancelled
+            
+            self.dismissViewControllerAnimated(true, completion: nil)
+    }
+    
     
     override func shouldAutorotate() -> Bool {
         return true

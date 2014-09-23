@@ -11,12 +11,14 @@ import MultipeerConnectivity
 
 class PlayerConnect: NSObject, MCSessionDelegate{
     
+    var scene: GameScene!
+    
     let serviceType = "stuffedAnimalMK"
     
     var browser : MCBrowserViewController!
     var assistant : MCAdvertiserAssistant!
     var session : MCSession!
-    var peerID: MCPeerID!
+    var peerID: MCPeerID! // id for ur self
     
     @IBOutlet var chatView: UITextView!
     @IBOutlet var messageField: UITextField!
@@ -25,7 +27,7 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         super.init() // viewDidLoad does not work on a NSOBject
         
         self.peerID = MCPeerID(displayName: UIDevice.currentDevice().name)
-        self.session = MCSession(peer: peerID)
+        self.session = MCSession(peer: peerID) // creating a new session w/ our peer ID
         self.session.delegate = self
         
         // create the browser viewcontroller with a unique service name
@@ -38,6 +40,16 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
     }
+    
+    func sendPlayerInfo(info: NSDictionary){
+        // turn the dictionary into data by archiving it
+        var infoData = NSKeyedArchiver.archivedDataWithRootObject(info)
+        
+        // then send data to peers
+        self.session.sendData(infoData, toPeers: self.session.connectedPeers, withMode: MCSessionSendDataMode.Reliable, error: nil)
+    }
+    
+    // can only have 1 service type per session
     
     @IBAction func sendChat(sender: UIButton) {
         // Bundle up the text in the message field, and send it off to all
@@ -88,9 +100,19 @@ class PlayerConnect: NSObject, MCSessionDelegate{
             // This needs to run on the main queue
             dispatch_async(dispatch_get_main_queue()) {
                 
-                var msg = NSString(data: data, encoding: NSUTF8StringEncoding)
+                // recieving info from data
+                var info = NSKeyedUnarchiver.unarchiveObjectWithData(data) as NSDictionary
                 
-                self.updateChat(msg, fromPeer: peerID)
+                if info["moveLeft"] != nil {
+                    self.scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+                }
+                
+                if info["moveRight"] != nil {
+                    self.scene.player2.body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+                }
+                
+                
+                // take data and move player2
             }
     }
     
@@ -119,6 +141,20 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         didChangeState state: MCSessionState)  {
             // Called when a connected peer changes state (for example, goes offline)
             
+            
+            println(peerID.displayName)
+            println(state)
+
+            
+            
     }
    
 }
+
+
+
+
+
+
+
+

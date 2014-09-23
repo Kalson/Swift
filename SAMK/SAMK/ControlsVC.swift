@@ -12,6 +12,7 @@ import SpriteKit
 class ControlsVC: UIViewController {
     
     var scene: GameScene!
+    var playerConnect: PlayerConnect!
     
     var aButton = UIButton()
     var bButton = UIButton()
