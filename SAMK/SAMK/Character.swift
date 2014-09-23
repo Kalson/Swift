@@ -7,7 +7,14 @@
 //
 
 import UIKit
+import SpriteKit
 
 class Character: NSObject {
+    
+    var body = SKNode() // the body will be the character, right now the node does not have a frame size
+    
+    override init() {
+        super.init()
+    }
    
 }
