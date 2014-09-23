@@ -32,6 +32,8 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
     let statusViewC = StatusVC()
     let controlsViewC = ControlsVC()
     let playerConnect = PlayerConnect()
+    
+    var findFriendsButton: UIButton!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -52,17 +54,18 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-//            skView.presentScene(scene)
+            skView.presentScene(scene)
             
             controlsViewC.scene = scene
+            playerConnect.scene = scene
 
         }
         
      playerConnect.browser.delegate = self
 
         
-        var findFriendsButton = UIButton(frame: CGRectMake(0, 0, 200, 100))
-        findFriendsButton.layer.cornerRadius = 50
+        findFriendsButton = UIButton(frame: self.view.frame)
+//        findFriendsButton.layer.cornerRadius = 50
         findFriendsButton.setTitle("Find Friends", forState: .Normal)
         findFriendsButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
         findFriendsButton.backgroundColor = UIColor.whiteColor()
@@ -73,8 +76,10 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         controlsViewC.playerConnect = playerConnect
         
         
-//        self.view.addSubview(statusViewC.view)
-//        self.view.addSubview(controlsViewC.view)
+        self.view.addSubview(statusViewC.view)
+        self.view.addSubview(controlsViewC.view)
+        
+        self.view.addSubview(findFriendsButton)
 
     }
     
@@ -91,7 +96,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         browserViewController: MCBrowserViewController!)  {
             // Called when the browser view controller is dismissed (ie the Done
             // button was tapped)
-            
+            findFriendsButton.removeFromSuperview()
             self.dismissViewControllerAnimated(true, completion: nil)
     }
     

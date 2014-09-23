@@ -120,10 +120,14 @@ class ControlsVC: UIViewController {
                 if location.x > joyStick.center.x + 10 {
                     scene.player1.direction = 1
                     scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+                    
+                    playerConnect.sendPlayerInfo(["moveRight":true])
                 }
                 if location.x < joyStick.center.x - 10 {
                     scene.player1.direction = -1
                     scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+                    playerConnect.sendPlayerInfo(["moveLeft":true])
+
 
                 }
             }

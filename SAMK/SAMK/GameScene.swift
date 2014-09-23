@@ -23,6 +23,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player1.body)
 //        player1.body.physicsBody?.contactTestBitMask = 1
         
+        player2.body.position = CGPointMake(200, 200)
+        self.addChild(player2.body)
+        
         var floor = SKShapeNode(rectOfSize: CGSizeMake(SCREEN_WIDTH, 10))
         floor.fillColor = UIColor.darkGrayColor()
         floor.position = CGPointMake(SCREEN_WIDTH / 2.0, 5) // a postion on a node starts on the bottom left and its on the center point of the object, unlike with Views

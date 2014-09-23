@@ -9,11 +9,14 @@
 import UIKit
 import MultipeerConnectivity
 
+let kMCSessionMaximumNumberOfPeers = 1
+let kMCSessionMinimumNumberOfPeers = 1
+
 class PlayerConnect: NSObject, MCSessionDelegate{
     
     var scene: GameScene!
     
-    let serviceType = "stuffedAnimalMK"
+    let serviceType = "stufffedAnimal"
     
     var browser : MCBrowserViewController!
     var assistant : MCAdvertiserAssistant!
@@ -33,12 +36,17 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         // create the browser viewcontroller with a unique service name
         self.browser = MCBrowserViewController(serviceType:serviceType,
             session:self.session)
+        
+        self.browser.maximumNumberOfPeers = 1
                 
         self.assistant = MCAdvertiserAssistant(serviceType:serviceType,
             discoveryInfo:nil, session:self.session)
         
         // tell the assistant to start advertising our fabulous chat
         self.assistant.start()
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("closeSession"), name: UIApplicationWillResignActiveNotification, object: nil)
     }
     
     func sendPlayerInfo(info: NSDictionary){
@@ -141,6 +149,10 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         didChangeState state: MCSessionState)  {
             // Called when a connected peer changes state (for example, goes offline)
             
+            
+            if state == MCSessionState.NotConnected {
+                session.disconnect()
+            }
             
             println(peerID.displayName)
             println(state)
