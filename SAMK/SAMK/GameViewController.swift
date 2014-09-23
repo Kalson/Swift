@@ -8,6 +8,7 @@
 
 import UIKit
 import SpriteKit
+import MultipeerConnectivity
 
 // saves the game in its state (ipad size scale to ipad si)
 extension SKNode {
@@ -26,7 +27,7 @@ extension SKNode {
     }
 }
 
-class GameViewController: UIViewController {
+class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
     
     let statusViewC = StatusVC()
     let controlsViewC = ControlsVC()
@@ -78,6 +79,21 @@ class GameViewController: UIViewController {
     }
 
     func startGame(){
+        
+        func browserViewControllerDidFinish(
+            browserViewController: MCBrowserViewController!)  {
+                // Called when the browser view controller is dismissed (ie the Done
+                // button was tapped)
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+        }
+        
+        func browserViewControllerWasCancelled(
+            browserViewController: MCBrowserViewController!)  {
+                // Called when the browser view controller is cancelled
+                
+                self.dismissViewControllerAnimated(true, completion: nil)
+        }
         
     }
     

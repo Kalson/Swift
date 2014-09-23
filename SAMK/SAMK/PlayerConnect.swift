@@ -9,7 +9,7 @@
 import UIKit
 import MultipeerConnectivity
 
-class PlayerConnect: NSObject, MCBrowserViewControllerDelegate, MCSessionDelegate{
+class PlayerConnect: NSObject, MCSessionDelegate{
     
     let serviceType = "stuffedAnimalMK"
     
@@ -31,9 +31,7 @@ class PlayerConnect: NSObject, MCBrowserViewControllerDelegate, MCSessionDelegat
         // create the browser viewcontroller with a unique service name
         self.browser = MCBrowserViewController(serviceType:serviceType,
             session:self.session)
-        
-        self.browser.delegate = self;
-        
+                
         self.assistant = MCAdvertiserAssistant(serviceType:serviceType,
             discoveryInfo:nil, session:self.session)
         
@@ -82,20 +80,6 @@ class PlayerConnect: NSObject, MCBrowserViewControllerDelegate, MCSessionDelegat
         
     }
     
-    func browserViewControllerDidFinish(
-        browserViewController: MCBrowserViewController!)  {
-            // Called when the browser view controller is dismissed (ie the Done
-            // button was tapped)
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-    }
-    
-    func browserViewControllerWasCancelled(
-        browserViewController: MCBrowserViewController!)  {
-            // Called when the browser view controller is cancelled
-            
-            self.dismissViewControllerAnimated(true, completion: nil)
-    }
     
     func session(session: MCSession!, didReceiveData data: NSData!,
         fromPeer peerID: MCPeerID!)  {
