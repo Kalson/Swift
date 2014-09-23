@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2643CF4E19D06E7A00D390B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643CF4D19D06E7A00D390B8 /* Constants.swift */; };
+		26D4D17819D1BEFF00EDC7CD /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */; };
+		26D4D17919D1BEFF00EDC7CD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17719D1BEFF00EDC7CD /* spark.png */; };
 		26D8F72019D0650100356F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F71F19D0650100356F56 /* AppDelegate.swift */; };
 		26D8F72219D0650100356F56 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26D8F72119D0650100356F56 /* GameScene.sks */; };
 		26D8F72419D0650100356F56 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F72319D0650100356F56 /* GameScene.swift */; };
@@ -34,6 +36,8 @@
 
 /* Begin PBXFileReference section */
 		2643CF4D19D06E7A00D390B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
+		26D4D17719D1BEFF00EDC7CD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		26D8F71A19D0650100356F56 /* SAMK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAMK.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		26D8F71E19D0650100356F56 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		26D8F71F19D0650100356F56 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -104,6 +108,8 @@
 				26D8F72A19D0650100356F56 /* Images.xcassets */,
 				26D8F72C19D0650100356F56 /* LaunchScreen.xib */,
 				26D8F71D19D0650100356F56 /* Supporting Files */,
+				26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */,
+				26D4D17719D1BEFF00EDC7CD /* spark.png */,
 			);
 			path = SAMK;
 			sourceTree = "<group>";
@@ -214,9 +220,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				26D8F72E19D0650100356F56 /* LaunchScreen.xib in Resources */,
+				26D4D17919D1BEFF00EDC7CD /* spark.png in Resources */,
 				26D8F72B19D0650100356F56 /* Images.xcassets in Resources */,
 				26D8F72219D0650100356F56 /* GameScene.sks in Resources */,
 				26D8F72919D0650100356F56 /* Main.storyboard in Resources */,
+				26D4D17819D1BEFF00EDC7CD /* MyParticle.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

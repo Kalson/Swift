@@ -9,7 +9,7 @@
 import UIKit
 import SpriteKit
 
-// saves the game in its state
+// saves the game in its state (ipad size scale to ipad si)
 extension SKNode {
     class func unarchiveFromFile(file : NSString) -> SKNode? {
         if let path = NSBundle.mainBundle().pathForResource(file, ofType: "sks") {
@@ -35,6 +35,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
 
         if let scene = GameScene.unarchiveFromFile("GameScene") as? GameScene {
+            
+            // make sure the the size of the scene scales down to whatever device its on (conforms to which device its ran on, unlike before were it had an ipad frame)
+            scene.size = UIScreen.mainScreen().bounds.size
+            
             // Configure the view.
             let skView = self.view as SKView
             skView.showsFPS = true
@@ -47,7 +51,11 @@ class GameViewController: UIViewController {
             scene.scaleMode = .AspectFill
             
             skView.presentScene(scene)
+            
+            controlsViewC.scene = scene
+
         }
+        
         
         self.view.addSubview(statusViewC.view)
         self.view.addSubview(controlsViewC.view)
