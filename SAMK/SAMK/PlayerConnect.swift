@@ -47,6 +47,11 @@ class PlayerConnect: NSObject, MCSessionDelegate{
         
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: Selector("closeSession"), name: UIApplicationWillResignActiveNotification, object: nil)
+        
+    }
+    
+    func closeSession(){
+        self.session.disconnect()
     }
     
     func sendPlayerInfo(info: NSDictionary){
@@ -112,13 +117,20 @@ class PlayerConnect: NSObject, MCSessionDelegate{
                 var info = NSKeyedUnarchiver.unarchiveObjectWithData(data) as NSDictionary
                 
                 if info["moveLeft"] != nil {
-                    self.scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+                    self.scene.player2.moveLeft()
                 }
                 
                 if info["moveRight"] != nil {
-                    self.scene.player2.body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+                    self.scene.player2.moveRight()
                 }
                 
+                if info["jump"] != nil {
+                    self.scene.player2.jump()
+                }
+                
+                if info["fire"] != nil {
+                    self.scene.player2.fire()
+                }
                 
                 // take data and move player2
             }

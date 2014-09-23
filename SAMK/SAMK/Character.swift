@@ -24,4 +24,53 @@ class Character: NSObject {
         body.physicsBody = SKPhysicsBody(rectangleOfSize: body.frame.size)
     }
    
+    
+    func moveLeft(){
+        direction = -1
+        body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+    }
+    
+    func moveRight(){
+        direction = 1
+        body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+    }
+    
+    func jump(){
+        body.physicsBody?.applyImpulse(CGVectorMake(0.0, 50.0))
+
+    }
+    
+    func fire(){
+        
+        //        var kamehameha = SKShapeNode(rectOfSize: CGSizeMake(100, 100), cornerRadius: 50)
+        
+        // adding a particle to Sk
+        var particlePath = NSBundle.mainBundle().pathForResource("MyParticle", ofType: "sks")
+        //        var kamehameha = NSKeyedUnarchiver.unarchiveObjectWithFile(particlePath!) as SKEmitterNode
+        
+        
+        /// longer method
+        var sceneData = NSData.dataWithContentsOfFile(particlePath!, options: .DataReadingMappedIfSafe, error: nil)
+        var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
+        
+        archiver.setClass(SKEmitterNode.self, forClassName: "SKEditorScene")
+        let node = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as SKEmitterNode?
+        archiver.finishDecoding()
+        
+        var kamehameha = node!
+        
+        //// longer method
+        
+        //        kamehameha.fillColor = UIColor.cyanColor()
+        kamehameha.position = CGPointMake(body.position.x + 50 * direction, body.position.y)
+        kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
+        kamehameha.physicsBody?.affectedByGravity = false
+        scene.addChild(kamehameha)
+        
+        kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0 * direction, 0.0))
+        
+        body.physicsBody?.applyImpulse(CGVectorMake(-20.0 * direction, 0.0))
+        
+        
+    }
 }

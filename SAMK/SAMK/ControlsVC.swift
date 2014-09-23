@@ -52,42 +52,14 @@ class ControlsVC: UIViewController {
     }
     
     func aTapped(){
-//        var kamehameha = SKShapeNode(rectOfSize: CGSizeMake(100, 100), cornerRadius: 50)
-        
-        // adding a particle to Sk
-        var particlePath = NSBundle.mainBundle().pathForResource("MyParticle", ofType: "sks")
-//        var kamehameha = NSKeyedUnarchiver.unarchiveObjectWithFile(particlePath!) as SKEmitterNode
-        
-        
-        /// longer method
-        var sceneData = NSData.dataWithContentsOfFile(particlePath!, options: .DataReadingMappedIfSafe, error: nil)
-        var archiver = NSKeyedUnarchiver(forReadingWithData: sceneData)
-        
-        archiver.setClass(SKEmitterNode.self, forClassName: "SKEditorScene")
-        let node = archiver.decodeObjectForKey(NSKeyedArchiveRootObjectKey) as SKEmitterNode?
-        archiver.finishDecoding()
-        
-        var kamehameha = node!
-        
-        //// longer method
-        
-//        kamehameha.fillColor = UIColor.cyanColor()
-        kamehameha.position = CGPointMake(scene.player1.body.position.x + 50 * scene.player1.direction, scene.player1.body.position.y)
-        kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
-        kamehameha.physicsBody?.affectedByGravity = false
-        scene.addChild(kamehameha)
-        
-        kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0 * scene.player1.direction, 0.0))
-    
-        scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-20.0 * scene.player1.direction, 0.0))
-        
-        
-        
+
+        scene.player1.fire()
         
     }
     
     func bTapped(){
-        scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(0.0, 50.0))
+        scene.player1.jump()
+        playerConnect.sendPlayerInfo(["fire":true])
     }
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
@@ -118,16 +90,15 @@ class ControlsVC: UIViewController {
                 joyStickHandle.center = location
                 
                 if location.x > joyStick.center.x + 10 {
-                    scene.player1.direction = 1
-                    scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+                   scene.player1.moveRight()
                     
                     playerConnect.sendPlayerInfo(["moveRight":true])
                 }
                 if location.x < joyStick.center.x - 10 {
-                    scene.player1.direction = -1
-                    scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+                    scene.player1.moveLeft()
                     playerConnect.sendPlayerInfo(["moveLeft":true])
 
+                    // in controlsVC its player 1 and in playerconnect its player 2
 
                 }
             }
