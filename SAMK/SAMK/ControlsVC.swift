@@ -71,13 +71,14 @@ class ControlsVC: UIViewController {
         //// longer method
         
 //        kamehameha.fillColor = UIColor.cyanColor()
-        kamehameha.position = CGPointMake(scene.player1.body.position.x + 100, scene.player1.body.position.y)
+        kamehameha.position = CGPointMake(scene.player1.body.position.x + 50 * scene.player1.direction, scene.player1.body.position.y)
         kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
         kamehameha.physicsBody?.affectedByGravity = false
         scene.addChild(kamehameha)
-        kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0, 0.0))
+        
+        kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0 * scene.player1.direction, 0.0))
     
-        scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-20.0, 0.0))
+        scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-20.0 * scene.player1.direction, 0.0))
         
         
         
@@ -90,18 +91,13 @@ class ControlsVC: UIViewController {
     
     override func touchesBegan(touches: NSSet, withEvent event: UIEvent) {
         
+        moveJoyStick(touches)
+
     }
     
     override func touchesMoved(touches: NSSet, withEvent event: UIEvent) {
         
-        for touch in touches.allObjects as [UITouch] {
-            
-            let location = touch.locationInView(self.view)
-            
-            if CGRectContainsPoint(joyStick.frame, location) {
-                joyStickHandle.center = location
-            }
-        }
+        moveJoyStick(touches)
         
     }
     
@@ -110,6 +106,27 @@ class ControlsVC: UIViewController {
         UIView.animateWithDuration(0.4, animations: { () -> Void in
             self.joyStickHandle.center = self.joyStick.center
         })
+    }
+    
+    func moveJoyStick(touches: NSSet){
+        for touch in touches.allObjects as [UITouch] {
+            
+            let location = touch.locationInView(self.view)
+            
+            if CGRectContainsPoint(joyStick.frame, location) {
+                joyStickHandle.center = location
+                
+                if location.x > joyStick.center.x + 10 {
+                    scene.player1.direction = 1
+                    scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+                }
+                if location.x < joyStick.center.x - 10 {
+                    scene.player1.direction = -1
+                    scene.player1.body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+
+                }
+            }
+        }
     }
     
     func renderJoyStick(){

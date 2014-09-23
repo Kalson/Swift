@@ -30,6 +30,7 @@ class GameViewController: UIViewController {
     
     let statusViewC = StatusVC()
     let controlsViewC = ControlsVC()
+    let playerConnect = PlayerConnect()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -50,18 +51,36 @@ class GameViewController: UIViewController {
             /* Set the scale mode to scale to fit the window */
             scene.scaleMode = .AspectFill
             
-            skView.presentScene(scene)
+//            skView.presentScene(scene)
             
             controlsViewC.scene = scene
 
         }
         
+        var findFriendsButton = UIButton(frame: CGRectMake(0, 0, 200, 100))
+        findFriendsButton.layer.cornerRadius = 50
+        findFriendsButton.setTitle("Find Friends", forState: .Normal)
+        findFriendsButton.setTitleColor(UIColor.blackColor(), forState: .Normal)
+        findFriendsButton.backgroundColor = UIColor.whiteColor()
+        findFriendsButton.center = self.view.center
+        findFriendsButton.addTarget(self, action: Selector("findFriends"), forControlEvents: .TouchUpInside)
+        self.view.addSubview(findFriendsButton)
         
-        self.view.addSubview(statusViewC.view)
-        self.view.addSubview(controlsViewC.view)
+        
+//        self.view.addSubview(statusViewC.view)
+//        self.view.addSubview(controlsViewC.view)
 
     }
+    
+    func findFriends(){
+        self.presentViewController(playerConnect.browser, animated: true, completion: nil)
+        
+    }
 
+    func startGame(){
+        
+    }
+    
     override func shouldAutorotate() -> Bool {
         return true
     }

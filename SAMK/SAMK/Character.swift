@@ -14,7 +14,7 @@ class Character: NSObject {
     var body: SKShapeNode! // shape nodes allow to do a rectangular object
     // the body will be the character, right now the node does not have a frame size
     
-    var direction = 1 // right being and left being -1
+    var direction: CGFloat = 1 // this is right in the aspect of right being 1 and left being -1
     
     override init() {
         super.init()
