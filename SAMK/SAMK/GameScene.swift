@@ -65,8 +65,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func didBeginContact(contact: SKPhysicsContact) {
-        println(contact.bodyA)
-        println(contact.bodyB)
+       
+        
+        if contact.bodyA.node == self {
+            // if the characters are hitting the wall
+             
+            contact.bodyB.node?.removeFromParent()
+            
+            println(contact.bodyA.node)
+            println(contact.bodyB.node)
+        }
+        
+        if contact.bodyB.node == player2 {
+            player2.CurrentHP -= 10
+            contact.bodyA.node?.removeFromParent()
+        }
     }
     
     override func update(currentTime: CFTimeInterval) {

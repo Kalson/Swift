@@ -9,6 +9,9 @@
 import UIKit
 import SpriteKit
 
+let FIRE_CONTACT:UInt32 = 1 // unsigned integer of 32 bytes
+let PLAYER_CONTACT:UInt32 = 2
+
 
 // this whole class refers to each player
 class Character: NSObject {
@@ -17,6 +20,9 @@ class Character: NSObject {
     // the body will be the character, right now the node does not have a frame size
     
     var direction: CGFloat = 1.0 // this is right in the aspect of right being 1 and left being -1
+    
+    var CurrentHP: Int = 100
+    var maxHP: Int = 10
     
     var textureNames: [String] = []
     
@@ -28,12 +34,15 @@ class Character: NSObject {
         
 //        print(sorted(characterAtlas.textureNames as [String]) // need to fix this
         
-        body = SKSpriteNode(imageNamed: characterAtlas.textureNames[0] as String)
+        body = SKSpriteNode(imageNamed: textureNames[0] as String)
         body.size = CGSizeMake(40, 80)
         
 //        body = SKShapeNode(rectOfSize: CGSizeMake(40, 70))
 //        body.fillColor = UIColor.whiteColor()
         body.physicsBody = SKPhysicsBody(rectangleOfSize: body.frame.size)
+        body.physicsBody?.allowsRotation = false
+//        body.physicsBody?.categoryBitMask = FIRE_CONTACT
+
     }
    
     
@@ -99,7 +108,7 @@ class Character: NSObject {
         //// longer method
         
         //        kamehameha.fillColor = UIColor.cyanColor()
-        kamehameha.position = CGPointMake(body.position.x + 50 * direction, body.position.y)
+        kamehameha.position = CGPointMake(body.position.x + 50 * direction, body.position.y + 10)
         kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
         kamehameha.physicsBody?.affectedByGravity = false
         
@@ -108,9 +117,11 @@ class Character: NSObject {
         // a node should have a parent node
         body.parent?.addChild(kamehameha)
         
-        kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0 * direction, 0.0))
+        kamehameha.physicsBody?.applyImpulse(CGVectorMake(10.0 * direction, 0.0))
         
-        body.physicsBody?.applyImpulse(CGVectorMake(-20.0 * direction, 0.0))
+        body.physicsBody?.applyImpulse(CGVectorMake(-5.0 * direction, 0.0))
+        
+        kamehameha.physicsBody?.contactTestBitMask = FIRE_CONTACT
         
         
     }
