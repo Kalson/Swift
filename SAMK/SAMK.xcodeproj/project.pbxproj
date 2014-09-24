@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		2643CF4E19D06E7A00D390B8 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2643CF4D19D06E7A00D390B8 /* Constants.swift */; };
+		26D0C34819D2FB99009D6163 /* bg.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34519D2FB99009D6163 /* bg.png */; };
+		26D0C34919D2FB99009D6163 /* cloud.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34619D2FB99009D6163 /* cloud.png */; };
+		26D0C34A19D2FB99009D6163 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34719D2FB99009D6163 /* sun.png */; };
 		26D4D17819D1BEFF00EDC7CD /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */; };
 		26D4D17919D1BEFF00EDC7CD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17719D1BEFF00EDC7CD /* spark.png */; };
 		26D8F72019D0650100356F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F71F19D0650100356F56 /* AppDelegate.swift */; };
@@ -36,6 +39,9 @@
 
 /* Begin PBXFileReference section */
 		2643CF4D19D06E7A00D390B8 /* Constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		26D0C34519D2FB99009D6163 /* bg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg.png; path = ../../../../Downloads/SAMK_files/bg.png; sourceTree = "<group>"; };
+		26D0C34619D2FB99009D6163 /* cloud.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = cloud.png; path = ../../../../Downloads/SAMK_files/cloud.png; sourceTree = "<group>"; };
+		26D0C34719D2FB99009D6163 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = ../../../../Downloads/SAMK_files/sun.png; sourceTree = "<group>"; };
 		26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		26D4D17719D1BEFF00EDC7CD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		26D8F71A19D0650100356F56 /* SAMK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAMK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -74,6 +80,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26D0C34B19D2FBA5009D6163 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				26D0C34519D2FB99009D6163 /* bg.png */,
+				26D0C34619D2FB99009D6163 /* cloud.png */,
+				26D0C34719D2FB99009D6163 /* sun.png */,
+			);
+			name = images;
+			sourceTree = "<group>";
+		};
 		26D8F71119D0650100356F56 = {
 			isa = PBXGroup;
 			children = (
@@ -95,6 +111,7 @@
 		26D8F71C19D0650100356F56 /* SAMK */ = {
 			isa = PBXGroup;
 			children = (
+				26D0C34B19D2FBA5009D6163 /* images */,
 				2643CF4D19D06E7A00D390B8 /* Constants.swift */,
 				26D8F74319D0673F00356F56 /* Character.swift */,
 				26D8F74519D0678700356F56 /* StatusVC.swift */,
@@ -223,7 +240,10 @@
 				26D8F72E19D0650100356F56 /* LaunchScreen.xib in Resources */,
 				26D4D17919D1BEFF00EDC7CD /* spark.png in Resources */,
 				26D8F72B19D0650100356F56 /* Images.xcassets in Resources */,
+				26D0C34919D2FB99009D6163 /* cloud.png in Resources */,
 				26D8F72219D0650100356F56 /* GameScene.sks in Resources */,
+				26D0C34819D2FB99009D6163 /* bg.png in Resources */,
+				26D0C34A19D2FB99009D6163 /* sun.png in Resources */,
 				26D8F72919D0650100356F56 /* Main.storyboard in Resources */,
 				26D4D17819D1BEFF00EDC7CD /* MyParticle.sks in Resources */,
 			);

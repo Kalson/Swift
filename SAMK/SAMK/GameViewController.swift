@@ -79,7 +79,7 @@ class GameViewController: UIViewController, MCBrowserViewControllerDelegate {
         self.view.addSubview(statusViewC.view)
         self.view.addSubview(controlsViewC.view)
         
-        self.view.addSubview(findFriendsButton)
+//        self.view.addSubview(findFriendsButton)
 
     }
     

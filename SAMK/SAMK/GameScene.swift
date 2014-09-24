@@ -13,11 +13,22 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     var player1 = Character()
     var player2 = Character()
     
+    var sun = SKSpriteNode(imageNamed: "sun")
+    
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
+        self.backgroundColor = UIColor(red: 0.078, green: 0.0827, blue: 0.949, alpha: 1.0)
+        
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame) // puts a boundary on the frame
         self.physicsWorld.contactDelegate = self
+        
+        sun.size = CGSizeMake(SCREEN_HEIGHT, SCREEN_HEIGHT)
+        sun.position = self.position
+        
+        self.addChild(sun)
+        
+        // position is the center point of something
         
         player1.body.position = CGPointMake(200, 200)
         self.addChild(player1.body)

@@ -65,7 +65,11 @@ class Character: NSObject {
         kamehameha.position = CGPointMake(body.position.x + 50 * direction, body.position.y)
         kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
         kamehameha.physicsBody?.affectedByGravity = false
-        scene.addChild(kamehameha)
+        
+//        scene.addChild(kamehameha)
+        
+        // a node should have a parent node
+        body.parent?.addChild(kamehameha)
         
         kamehameha.physicsBody?.applyImpulse(CGVectorMake(200.0 * direction, 0.0))
         
