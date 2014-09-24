@@ -44,6 +44,23 @@ class Character: NSObject {
 //        body.physicsBody?.categoryBitMask = FIRE_CONTACT
 
     }
+    
+    func checkHit(bodyA:SKPhysicsBody, bodyB: SKPhysicsBody){
+        if bodyA.node == self {
+            
+            CurrentHP -= 10
+            bodyB.node?.removeFromParent()
+        }
+        
+        if bodyB.node == self {
+            
+            CurrentHP -= 10
+            bodyA.node?.removeFromParent()
+
+
+        }
+        
+    }
    
     
     func moveLeft(){
