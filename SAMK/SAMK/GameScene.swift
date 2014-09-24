@@ -36,6 +36,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(bg)
         
         // position is the center point of something
+        // look up texture atlassk
         
         player1.body.position = CGPointMake(200, 200)
         self.addChild(player1.body)

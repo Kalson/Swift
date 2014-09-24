@@ -11,16 +11,28 @@ import SpriteKit
 
 class Character: NSObject {
     
-    var body: SKShapeNode! // shape nodes allow to do a rectangular object
+    var body: SKSpriteNode! // shape nodes allow to do a rectangular object
     // the body will be the character, right now the node does not have a frame size
     
-    var direction: CGFloat = 1 // this is right in the aspect of right being 1 and left being -1
+    var direction: CGFloat = 1.0 // this is right in the aspect of right being 1 and left being -1
+    
+    var textureNames: [String] = []
     
     override init() {
         super.init()
         
-        body = SKShapeNode(rectOfSize: CGSizeMake(40, 70))
-        body.fillColor = UIColor.whiteColor()
+        
+        var characterAtlas = SKTextureAtlas(named: "bunny")
+        
+        textureNames = sorted(characterAtlas.textureNames as [String],<)
+        
+//        print(sorted(characterAtlas.textureNames as [String]) // need to fix this
+        
+        body = SKSpriteNode(imageNamed: characterAtlas.textureNames[0] as String)
+        body.size = CGSizeMake(54, 116)
+        
+//        body = SKShapeNode(rectOfSize: CGSizeMake(40, 70))
+//        body.fillColor = UIColor.whiteColor()
         body.physicsBody = SKPhysicsBody(rectangleOfSize: body.frame.size)
     }
    
