@@ -9,6 +9,8 @@
 import UIKit
 import SpriteKit
 
+
+// this whole class refers to each player
 class Character: NSObject {
     
     var body: SKSpriteNode! // shape nodes allow to do a rectangular object
@@ -18,11 +20,9 @@ class Character: NSObject {
     
     var textureNames: [String] = []
     
-    override init() {
-        super.init()
+    init (animal:String) {
         
-        
-        var characterAtlas = SKTextureAtlas(named: "bunny")
+        var characterAtlas = SKTextureAtlas(named: animal)
         
         textureNames = sorted(characterAtlas.textureNames as [String],<)
         

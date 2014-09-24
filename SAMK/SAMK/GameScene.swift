@@ -10,8 +10,8 @@ import SpriteKit
 
 class GameScene: SKScene, SKPhysicsContactDelegate {
         
-    var player1 = Character()
-    var player2 = Character()
+    var player1 = Character(animal: "bunny")
+    var player2 = Character(animal: "panda")
     
     var sun = SKSpriteNode(imageNamed: "sun")
     
