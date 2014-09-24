@@ -29,8 +29,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         self.addChild(sun)
         
-        // setting backgroung
-        var bg = SKSpriteNode(imageNamed: "bg")
+        // setting background
+        var bg = SKSpriteNode(imageNamed: "bg_front")
         bg.size = self.size
         bg.position = sun.position
         self.addChild(bg)
@@ -53,8 +53,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
 //        floor.physicsBody?.categoryBitMask = 1
         self.addChild(floor)
 
-        var floor1 = SKShapeNode(rectOfSize: CGSizeMake(200, 10))
-        floor1.fillColor = UIColor.darkGrayColor()
+        var floor1 = SKSpriteNode(imageNamed: "cloud")
+        floor1.size = CGSizeMake(212, 55)
         floor1.position = CGPointMake(SCREEN_WIDTH / 2.0, 120) // a postion on a node starts on the bottom left and its on the center point of the object, unlike with Views
         floor1.physicsBody = SKPhysicsBody(rectangleOfSize: floor1.frame.size)
         floor1.physicsBody?.affectedByGravity = false
