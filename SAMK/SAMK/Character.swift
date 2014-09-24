@@ -11,6 +11,7 @@ import SpriteKit
 
 let FIRE_CONTACT:UInt32 = 1 // unsigned integer of 32 bytes
 let PLAYER_CONTACT:UInt32 = 2
+let MAX_HP: Int = 100
 
 
 // this whole class refers to each player
@@ -50,8 +51,10 @@ class Character: NSObject {
             
             CurrentHP -= 10
             bodyB.node?.removeFromParent()
-            
             // removes fireball b/c that's what making the contact
+            
+            // updates the health
+            NSNotificationCenter.defaultCenter().postNotificationName("healthUpdate", object: nil, userInfo: ["player":self])
         }
         
 //        if bodyB.node == self {
@@ -127,7 +130,7 @@ class Character: NSObject {
         //// longer method
         
         //        kamehameha.fillColor = UIColor.cyanColor()
-        kamehameha.position = CGPointMake(body.position.x + 50 * direction, body.position.y + 10)
+        kamehameha.position = CGPointMake(body.position.x + 100 * direction, body.position.y + 10)
         kamehameha.physicsBody = SKPhysicsBody(circleOfRadius: 50)
         kamehameha.physicsBody?.affectedByGravity = false
         
