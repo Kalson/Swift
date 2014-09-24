@@ -18,7 +18,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     override func didMoveToView(view: SKView) {
         /* Setup your scene here */
         
-        self.backgroundColor = UIColor(red: 0.078, green: 0.0827, blue: 0.949, alpha: 1.0)
+        self.backgroundColor = UIColor(red: 0.078, green: 0.827, blue: 0.949, alpha: 1.0)
 //        self.backgroundColor = UIColor.redColor()
         
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame) // puts a boundary on the frame
@@ -38,11 +38,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         // position is the center point of something
         // look up texture atlassk
         
-        player1.body.position = CGPointMake(200, 200)
+        player1.body.position = CGPointMake(330, 10)
         self.addChild(player1.body)
 //        player1.body.physicsBody?.contactTestBitMask = 1
         
-        player2.body.position = CGPointMake(200, 200)
+        player2.body.position = CGPointMake(330, 200)
         self.addChild(player2.body)
         
         var floor = SKShapeNode(rectOfSize: CGSizeMake(SCREEN_WIDTH, 10))
@@ -71,5 +71,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     override func update(currentTime: CFTimeInterval) {
         /* Called before each frame is rendered */
+        
+        sun.zRotation += 0.01
     }
 }
+
+
+
+
+

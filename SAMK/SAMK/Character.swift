@@ -29,7 +29,7 @@ class Character: NSObject {
 //        print(sorted(characterAtlas.textureNames as [String]) // need to fix this
         
         body = SKSpriteNode(imageNamed: characterAtlas.textureNames[0] as String)
-        body.size = CGSizeMake(54, 116)
+        body.size = CGSizeMake(40, 80)
         
 //        body = SKShapeNode(rectOfSize: CGSizeMake(40, 70))
 //        body.fillColor = UIColor.whiteColor()
@@ -40,16 +40,41 @@ class Character: NSObject {
     func moveLeft(){
         direction = -1
         body.physicsBody?.applyImpulse(CGVectorMake(-40.0, 0.0))
+        
+        // makes the bunny walk
+        var walkAction = SKAction.animateWithTextures(texturesFromNames(), timePerFrame: 0.1, resize: false, restore: true)
+        body.runAction(walkAction)
+        
+        // changes the direction of the bunny
+        body.xScale = direction
+
     }
     
     func moveRight(){
         direction = 1
         body.physicsBody?.applyImpulse(CGVectorMake(40.0, 0.0))
+        
+        // makes the bunny walk
+        var walkAction = SKAction.animateWithTextures(texturesFromNames(), timePerFrame: 0.1, resize: false, restore: true)
+        body.runAction(walkAction)
+        
+        body.xScale = direction
     }
     
     func jump(){
-        body.physicsBody?.applyImpulse(CGVectorMake(0.0, 50.0))
+        body.physicsBody?.applyImpulse(CGVectorMake(0.0, 70.0))
 
+    }
+    
+    func texturesFromNames() -> [SKTexture] { // changes all the texture names into textures themselves
+        
+        var textures: [SKTexture] = []
+        
+        for textureName in textureNames {
+            textures.append(SKTexture(imageNamed: textureName))
+        }
+        
+        return textures
     }
     
     func fire(){

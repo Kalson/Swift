@@ -13,6 +13,7 @@
 		26D0C34A19D2FB99009D6163 /* sun.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34719D2FB99009D6163 /* sun.png */; };
 		26D0C34D19D2FEF1009D6163 /* bg_front.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34C19D2FEF1009D6163 /* bg_front.png */; };
 		26D0C34F19D3027D009D6163 /* bunny.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C34E19D3027D009D6163 /* bunny.atlas */; };
+		26D0C35119D30C68009D6163 /* panda.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 26D0C35019D30C68009D6163 /* panda.atlas */; };
 		26D4D17819D1BEFF00EDC7CD /* MyParticle.sks in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */; };
 		26D4D17919D1BEFF00EDC7CD /* spark.png in Resources */ = {isa = PBXBuildFile; fileRef = 26D4D17719D1BEFF00EDC7CD /* spark.png */; };
 		26D8F72019D0650100356F56 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D8F71F19D0650100356F56 /* AppDelegate.swift */; };
@@ -46,6 +47,7 @@
 		26D0C34719D2FB99009D6163 /* sun.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = sun.png; path = ../../../../Downloads/SAMK_files/sun.png; sourceTree = "<group>"; };
 		26D0C34C19D2FEF1009D6163 /* bg_front.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = bg_front.png; path = ../../../../Downloads/bg_front.png; sourceTree = "<group>"; };
 		26D0C34E19D3027D009D6163 /* bunny.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = bunny.atlas; sourceTree = "<group>"; };
+		26D0C35019D30C68009D6163 /* panda.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = panda.atlas; sourceTree = "<group>"; };
 		26D4D17619D1BEFF00EDC7CD /* MyParticle.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = MyParticle.sks; sourceTree = "<group>"; };
 		26D4D17719D1BEFF00EDC7CD /* spark.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = spark.png; sourceTree = "<group>"; };
 		26D8F71A19D0650100356F56 /* SAMK.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SAMK.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -87,6 +89,7 @@
 		26D0C34B19D2FBA5009D6163 /* images */ = {
 			isa = PBXGroup;
 			children = (
+				26D0C35019D30C68009D6163 /* panda.atlas */,
 				26D0C34E19D3027D009D6163 /* bunny.atlas */,
 				26D0C34519D2FB99009D6163 /* bg.png */,
 				26D0C34C19D2FEF1009D6163 /* bg_front.png */,
@@ -249,6 +252,7 @@
 				26D8F72B19D0650100356F56 /* Images.xcassets in Resources */,
 				26D0C34919D2FB99009D6163 /* cloud.png in Resources */,
 				26D8F72219D0650100356F56 /* GameScene.sks in Resources */,
+				26D0C35119D30C68009D6163 /* panda.atlas in Resources */,
 				26D0C34819D2FB99009D6163 /* bg.png in Resources */,
 				26D0C34D19D2FEF1009D6163 /* bg_front.png in Resources */,
 				26D0C34A19D2FB99009D6163 /* sun.png in Resources */,
