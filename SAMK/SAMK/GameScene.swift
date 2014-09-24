@@ -19,14 +19,21 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         /* Setup your scene here */
         
         self.backgroundColor = UIColor(red: 0.078, green: 0.0827, blue: 0.949, alpha: 1.0)
+//        self.backgroundColor = UIColor.redColor()
         
         self.physicsBody = SKPhysicsBody(edgeLoopFromRect: self.frame) // puts a boundary on the frame
         self.physicsWorld.contactDelegate = self
         
         sun.size = CGSizeMake(SCREEN_HEIGHT, SCREEN_HEIGHT)
-        sun.position = self.position
+        sun.position = CGPointMake(SCREEN_WIDTH / 2.0, SCREEN_HEIGHT / 2.0)
         
         self.addChild(sun)
+        
+        // setting backgroung
+        var bg = SKSpriteNode(imageNamed: "bg")
+        bg.size = self.size
+        bg.position = sun.position
+        self.addChild(bg)
         
         // position is the center point of something
         
