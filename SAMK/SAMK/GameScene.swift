@@ -77,6 +77,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
         
         if contact.bodyB.node == player2 {
+            
+            player2.CurrentHP -= 10
+            contact.bodyA.node?.removeFromParent()
+        }
+        
+        if contact.bodyA.node == player1 {
+            
+            player2.CurrentHP -= 10
+            contact.bodyB.node?.removeFromParent()
+        }
+        
+        if contact.bodyB.node == player1 {
             player2.CurrentHP -= 10
             contact.bodyA.node?.removeFromParent()
         }
