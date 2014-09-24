@@ -46,19 +46,21 @@ class Character: NSObject {
     }
     
     func checkHit(bodyA:SKPhysicsBody, bodyB: SKPhysicsBody){
-        if bodyA.node == self {
+        if bodyA.node == body {
             
             CurrentHP -= 10
             bodyB.node?.removeFromParent()
+            
+            // removes fireball b/c that's what making the contact
         }
         
-        if bodyB.node == self {
-            
-            CurrentHP -= 10
-            bodyA.node?.removeFromParent()
-
-
-        }
+//        if bodyB.node == self {
+//            
+//            CurrentHP -= 10
+//            bodyA.node?.removeFromParent()
+//
+//
+//        }
         
     }
    

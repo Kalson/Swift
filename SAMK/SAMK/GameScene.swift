@@ -69,29 +69,39 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         
         if contact.bodyA.node == self {
             // if the characters are hitting the wall
-             
+            
+            // removes fireball when it hits the wall
             contact.bodyB.node?.removeFromParent()
             
             println(contact.bodyA.node)
             println(contact.bodyB.node)
         }
         
-        if contact.bodyB.node == player2 {
-            
-            player2.CurrentHP -= 10
-            contact.bodyA.node?.removeFromParent()
-        }
+        player1.checkHit(contact.bodyA, bodyB: contact.bodyB)
+        player1.checkHit(contact.bodyB, bodyB: contact.bodyA)
         
-        if contact.bodyA.node == player1 {
-            
-            player2.CurrentHP -= 10
-            contact.bodyB.node?.removeFromParent()
-        }
-        
-        if contact.bodyB.node == player1 {
-            player2.CurrentHP -= 10
-            contact.bodyA.node?.removeFromParent()
-        }
+        player1.checkHit(contact.bodyA, bodyB: contact.bodyB)
+        player1.checkHit(contact.bodyB, bodyB: contact.bodyA)
+
+
+
+//        
+//        if contact.bodyB.node == player2 {
+//            
+//            player2.CurrentHP -= 10
+//            contact.bodyA.node?.removeFromParent()
+//        }
+//        
+//        if contact.bodyA.node == player1 {
+//            
+//            player2.CurrentHP -= 10
+//            contact.bodyB.node?.removeFromParent()
+//        }
+//        
+//        if contact.bodyB.node == player1 {
+//            player2.CurrentHP -= 10
+//            contact.bodyA.node?.removeFromParent()
+//        }
     }
     
     override func update(currentTime: CFTimeInterval) {
