@@ -9,7 +9,9 @@
 import UIKit
 import StoreKit
 
-class TableViewController: UITableViewController {
+class TableViewController: UITableViewController, SKProductsRequestDelegate {
+    
+    var allProducts: [SKProduct] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +21,23 @@ class TableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+        var productIDs = NSSet(array:["no.ads","gem.pack.10"]) // create an NSSet w/ an array
+        
+        var productRequest = SKProductsRequest(productIdentifiers: productIDs)
+        productRequest.delegate = self
+        productRequest.start()
+        
+    }
+    
+    // name of the delegate usually has a  method w/ the same name
+    func productsRequest(request: SKProductsRequest!, didReceiveResponse response: SKProductsResponse!) {
+        
+     allProducts = response.products as [SKProduct]
+        println(response.products)
+        // once we set all products, reload data
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -28,27 +47,26 @@ class TableViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Potentially incomplete method implementation.
-        // Return the number of sections.
-        return 0
-    }
-
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete method implementation.
         // Return the number of rows in the section.
-        return 0
+        return allProducts.count
     }
 
-    /*
-    override func tableView(tableView: UITableView!, cellForRowAtIndexPath indexPath: NSIndexPath!) -> UITableViewCell! {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath) as UITableViewCell
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as TableViewCell
+        
+        var product = allProducts[indexPath.row]
+        
+        cell.nameLabel.text = product.localizedTitle
+        cell.priceLabel.text = "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price)" // this is StringWithFormat
+        
+//       println(product.priceLocale.objectForKey(NSLocaleCurrencySymbol))
 
         // Configure the cell...
 
         return cell
     }
-    */
 
     /*
     // Override to support conditional editing of the table view.
