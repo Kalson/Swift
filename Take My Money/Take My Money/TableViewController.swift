@@ -61,6 +61,8 @@ class TableViewController: UITableViewController, SKProductsRequestDelegate {
         cell.nameLabel.text = product.localizedTitle
         cell.priceLabel.text = "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price)" // this is StringWithFormat
         
+        cell.product = product
+        
 //       println(product.priceLocale.objectForKey(NSLocaleCurrencySymbol))
 
         // Configure the cell...
