@@ -14,6 +14,7 @@
 		26D0C37719D4519B009D6163 /* Take_My_MoneyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C37619D4519B009D6163 /* Take_My_MoneyTests.swift */; };
 		26D0C38119D45288009D6163 /* TableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C38019D45288009D6163 /* TableViewController.swift */; };
 		26D0C38319D452D7009D6163 /* TableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26D0C38219D452D7009D6163 /* TableViewCell.swift */; };
+		26D0C38519D45EED009D6163 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 26D0C38419D45EED009D6163 /* StoreKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,6 +39,7 @@
 		26D0C37619D4519B009D6163 /* Take_My_MoneyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Take_My_MoneyTests.swift; sourceTree = "<group>"; };
 		26D0C38019D45288009D6163 /* TableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewController.swift; sourceTree = "<group>"; };
 		26D0C38219D452D7009D6163 /* TableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TableViewCell.swift; sourceTree = "<group>"; };
+		26D0C38419D45EED009D6163 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,6 +47,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				26D0C38519D45EED009D6163 /* StoreKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -61,6 +64,7 @@
 		26D0C35219D4519B009D6163 = {
 			isa = PBXGroup;
 			children = (
+				26D0C38419D45EED009D6163 /* StoreKit.framework */,
 				26D0C35D19D4519B009D6163 /* Take My Money */,
 				26D0C37319D4519B009D6163 /* Take My MoneyTests */,
 				26D0C35C19D4519B009D6163 /* Products */,
@@ -164,6 +168,12 @@
 				TargetAttributes = {
 					26D0C35A19D4519B009D6163 = {
 						CreatedOnToolsVersion = 6.0.1;
+						DevelopmentTeam = CT9B77H7BM;
+						SystemCapabilities = {
+							com.apple.InAppPurchase = {
+								enabled = 1;
+							};
+						};
 					};
 					26D0C36F19D4519B009D6163 = {
 						CreatedOnToolsVersion = 6.0.1;
@@ -340,9 +350,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Take My Money/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -350,9 +363,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Take My Money/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
