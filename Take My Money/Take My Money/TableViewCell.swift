@@ -13,7 +13,18 @@ class TableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
-    var product: SKProduct!
+    var product: SKProduct! {
+        
+        // setter method for product
+        set(product){
+            self.nameLabel.text = product.localizedTitle
+            self.priceLabel.text = "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price)" // this is StringWithFormat
+        }
+        // when ur overiding setter methods in swift, u must use a getter method too
+        get{
+            return self.product
+        }
+    }
     
     @IBAction func buyProduct(sender: UIButton) {
         

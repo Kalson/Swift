@@ -55,16 +55,9 @@ class TableViewController: UITableViewController, SKProductsRequestDelegate {
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("productCell", forIndexPath: indexPath) as TableViewCell
-        
-        var product = allProducts[indexPath.row]
-        
-        cell.nameLabel.text = product.localizedTitle
-        cell.priceLabel.text = "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price)" // this is StringWithFormat
-        
-        cell.product = product
-        
-//       println(product.priceLocale.objectForKey(NSLocaleCurrencySymbol))
-
+    
+        cell.product = allProducts[indexPath.row]
+    
         // Configure the cell...
 
         return cell
