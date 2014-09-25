@@ -13,16 +13,21 @@ class TableViewCell: UITableViewCell, SKPaymentTransactionObserver {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
+    var saveProduct: SKProduct!
+    
     var product: SKProduct! {
         
         // setter method for product
         set(product){
+            
+            saveProduct = product
+            
             self.nameLabel.text = product.localizedTitle
             self.priceLabel.text = "\(product.priceLocale.objectForKey(NSLocaleCurrencySymbol)!)\(product.price)" // this is StringWithFormat
         }
         // when ur overiding setter methods in swift, u must use a getter method too
         get{
-            return self.product
+            return saveProduct
         }
     }
     
@@ -30,6 +35,7 @@ class TableViewCell: UITableViewCell, SKPaymentTransactionObserver {
         
         var payment = SKPayment(product: product)
         SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        SKPaymentQueue.defaultQueue().addPayment(payment)
         
     }
     
