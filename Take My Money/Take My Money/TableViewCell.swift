@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import StoreKit
 
 class TableViewCell: UITableViewCell {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    
+    var product: SKProduct!
     
     @IBAction func buyProduct(sender: UIButton) {
         
