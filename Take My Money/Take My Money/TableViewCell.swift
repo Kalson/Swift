@@ -9,7 +9,7 @@
 import UIKit
 import StoreKit
 
-class TableViewCell: UITableViewCell {
+class TableViewCell: UITableViewCell, SKPaymentTransactionObserver {
     @IBOutlet weak var priceLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
     
@@ -27,6 +27,40 @@ class TableViewCell: UITableViewCell {
     }
     
     @IBAction func buyProduct(sender: UIButton) {
+        
+        var payment = SKPayment(product: product)
+        SKPaymentQueue.defaultQueue().addTransactionObserver(self)
+        
+    }
+    
+    func paymentQueue(queue: SKPaymentQueue!, updatedTransactions transactions: [AnyObject]!) {
+        
+        for transaction in transactions as [SKPaymentTransaction] {
+            
+            println(transaction.payment.productIdentifier)
+            
+            switch(transaction.transactionState) {
+                
+            case SKPaymentTransactionState.Purchased :
+                println("Purchased")
+                SKPaymentQueue.defaultQueue().finishTransaction(transaction)
+                
+            case SKPaymentTransactionState.Purchasing :
+                println("Purchasing")
+                
+            case SKPaymentTransactionState.Deferred :
+                println("Deferred")
+                
+            case SKPaymentTransactionState.Restored :
+                println("Restored")
+                
+            case SKPaymentTransactionState.Failed :
+                println("Failed : \(transaction.error)")
+                
+                // if use a switch with all posible outcomes of an enum u don't need a default
+                
+            }
+        }
         
     }
 
