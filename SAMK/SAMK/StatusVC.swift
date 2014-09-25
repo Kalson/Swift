@@ -21,6 +21,25 @@ class StatusVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
+        /////////////////////////
+        /////////////////////////
+        /////////////////////////
+        
+        
+//        var collectionView = UICollectionView()
+//        
+//        var layout = UICollectionViewFlowLayout()
+//        
+//        layout.
+//        
+//        collectionView.setCollectionViewLayout(<#layout: UICollectionViewLayout#>, animated: <#Bool#>)
+        
+        /////////////////////////
+        /////////////////////////
+        /////////////////////////
+        
+        
         self.view.frame = CGRectMake(0, 0, SCREEN_WIDTH, 50)
 //        self.view.backgroundColor = UIColor.redColor()
         
