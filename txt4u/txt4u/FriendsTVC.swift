@@ -89,7 +89,7 @@ class FriendsTVC: UITableViewController {
 
         var friend = friends[indexPath.row] as PFUser
         
-        cell.textLabel?.text = friend.username
+        cell.textLabel.text = friend.username
         
         // Configure the cell...
 
