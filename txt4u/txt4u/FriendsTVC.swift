@@ -32,7 +32,7 @@ class FriendsTVC: UITableViewController {
                 // first object [0] is me, friends is the key to get back the array of PFusers
                 queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
                     println(objects)
-                    self.friends = objects[0]["friend"] as [PFUser] // this is an array of PFUsers
+                    self.friends = objects[0]["friend"] as! [PFUser] // this is an array of PFUsers
                     self.tableView.reloadData()
                     
                 }
@@ -85,11 +85,11 @@ class FriendsTVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! UITableViewCell
 
         var friend = friends[indexPath.row] as PFUser
         
-        cell.textLabel.text = friend.username
+        cell.textLabel!.text = friend.username
         
         // Configure the cell...
 
@@ -141,8 +141,8 @@ class FriendsTVC: UITableViewController {
         
         if segue.identifier == "showConversation"{
             // any segue that doesn't have an identifier will crash, unless every segue is named
-            var messageViewC = segue.destinationViewController as messageVC
-            messageViewC.friend = friends[self.tableView.indexPathForCell(sender as UITableViewCell)!.row]
+            var messageViewC = segue.destinationViewController as! messageVC
+            messageViewC.friend = friends[self.tableView.indexPathForCell(sender as! UITableViewCell)!.row]
             // this method return an indexpath so no need to create one
         }
         // Get the new view controller using [segue destinationViewController].

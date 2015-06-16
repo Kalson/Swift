@@ -58,7 +58,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as MessageCell
+        var cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as! MessageCell
         
         cell.messageInfo = conversation[indexPath.row]
         
@@ -89,7 +89,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         messageQuery.findObjectsInBackgroundWithBlock { (messages: [AnyObject]!,error: NSError!) -> Void in
             
             if messages.count > 0 {
-                self.conversation = messages as [PFObject]
+                self.conversation = messages as! [PFObject]
         
                 
                  self.tableView.reloadData()
@@ -152,7 +152,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         var push = PFPush()
 //        push.setMessage(messageField.text)
         push.setQuery(deviceQuery)
-        push.setData(data)
+        push.setData(data as [NSObject : AnyObject])
         push.sendPushInBackground() // send push async
         
         messageField.text = ""

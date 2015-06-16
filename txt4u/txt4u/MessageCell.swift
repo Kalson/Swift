@@ -17,7 +17,7 @@ class MessageCell: UITableViewCell {
     var messageInfo: PFObject!{
         willSet(info){
             
-            var sender = info["sender"] as PFUser
+            var sender = info["sender"] as! PFUser
             var me = PFUser.currentUser()
             
             println("change info")
@@ -47,11 +47,11 @@ class MessageCell: UITableViewCell {
             println(info["read"])
             
             
-            var receiver = info["receiver"] as PFUser
+            var receiver = info["receiver"] as! PFUser
             
             if receiver.objectId != me.objectId{
             
-                if info["read"] as Bool == false {
+                if info["read"] as! Bool == false {
                     
                     println("read")
                     

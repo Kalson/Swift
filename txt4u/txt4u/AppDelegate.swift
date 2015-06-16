@@ -54,13 +54,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
 //        var senderName = userInfo["sender"]["objectId"]
         
-        var notification = userInfo["aps"] as NSDictionary
+        var notification = userInfo["aps"] as! NSDictionary
         println("notification = \(notification)")
-        var alert = notification["alert"] as String
+        var alert = notification["alert"] as! String
         println("alert = \(alert)")
-        var sender = userInfo["sender"] as NSDictionary
+        var sender = userInfo["sender"] as! NSDictionary
         println("sender = \(sender)")
-        var senderName = sender["objectId"] as String
+        var senderName = sender["objectId"] as! String
         println("senderName = \(senderName)")
         
         UIApplication.sharedApplication().applicationIconBadgeNumber++

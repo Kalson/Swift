@@ -26,7 +26,7 @@ class ChooseTVC: FriendsTVC {
         var friendQuery = PFUser.query()
         friendQuery.findObjectsInBackgroundWithBlock { (users: [AnyObject]!, error: NSError!) -> Void in
             // properties need to use self
-            self.friends = users as [PFUser]
+            self.friends = users as! [PFUser]
             self.tableView.reloadData()
         }
     }
@@ -39,16 +39,16 @@ class ChooseTVC: FriendsTVC {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println((self.navigationController?.presentingViewController as UINavigationController).viewControllers[0])
+        println((self.navigationController?.presentingViewController as! UINavigationController).viewControllers[0])
         
         // the UINavigation has a property called viewCOntroller that has an array and the index: 0 refers to the root view controller
         
         // this line refers to navigation controllers by returning FriendsTVC
-        var myOldFriends = ((self.navigationController?.presentingViewController as UINavigationController).viewControllers[0] as FriendsTVC).friends
+        var myOldFriends = ((self.navigationController?.presentingViewController as! UINavigationController).viewControllers[0] as! FriendsTVC).friends
         
         // this is long way of myOldFriends
-        var presentingNavC = self.navigationController?.presentingViewController as UINavigationController
-        var myFriendsTVC = presentingNavC.viewControllers[0] as FriendsTVC
+        var presentingNavC = self.navigationController?.presentingViewController as! UINavigationController
+        var myFriendsTVC = presentingNavC.viewControllers[0] as! FriendsTVC
 //        var myFriends = myFriendsTVC.friends
         // because of the swift pointer issue
         
