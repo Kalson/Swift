@@ -37,7 +37,7 @@ class GameViewController: UIViewController
         let scene = GameScene(size: UIScreen.mainScreen().bounds.size)
 
             // Configure the view.
-            let skView = self.view as SKView
+            let skView = self.view as! SKView
             skView.showsFPS = true
             skView.showsNodeCount = true
             
@@ -55,11 +55,11 @@ class GameViewController: UIViewController
         return true
     }
 
-    override func supportedInterfaceOrientations() -> Int {
+    override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         if UIDevice.currentDevice().userInterfaceIdiom == .Phone {
-            return Int(UIInterfaceOrientationMask.AllButUpsideDown.toRaw())
+            return Int(UIInterfaceOrientationMask.AllButUpsideDown.rawValue)
         } else {
-            return Int(UIInterfaceOrientationMask.All.toRaw())
+            return Int(UIInterfaceOrientationMask.All.rawValue)
         }
     }
 

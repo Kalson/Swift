@@ -39,11 +39,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
             spriteNode.physicsBody = SKPhysicsBody(circleOfRadius: spriteNode.frame.size.width/2.0)
             
-            spriteNode.physicsBody.restitution = 0.8
-            spriteNode.physicsBody.density = 0.4
-            spriteNode.physicsBody.mass = 0.2
+            spriteNode.physicsBody!.restitution = 0.8
+            spriteNode.physicsBody!.density = 0.4
+            spriteNode.physicsBody!.mass = 0.2
             
-            spriteNode.physicsBody.collisionBitMask = 1
+            spriteNode.physicsBody!.collisionBitMask = 1
             
             var floatI = CGFloat(i)
             spriteNode.position = CGPointMake(self.frame.width / 10.0 * floatI, 300.0)
@@ -69,7 +69,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
             
 //            dart.physicsBody = SKPhysicsBody(rectangleOfSize: <#CGSize#>))
             
-            dart.physicsBody.contactTestBitMask = 1
+            dart.physicsBody!.contactTestBitMask = 1
             self.addChild(dart)
            
         }
@@ -77,14 +77,14 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func didBeginContact(contact: SKPhysicsContact!) {
         
-        println("contact")
+        print("contact")
         
         for balloon in balloons {
             if balloon == contact.bodyA.node || balloon == contact.bodyB.node{
                 
                 balloon.removeFromParent()
                 
-                var pop = SKAction.playSoundFileNamed("pop.mp3", waitForCompletion: false)
+                let pop = SKAction.playSoundFileNamed("pop.mp3", waitForCompletion: false)
                 
                 self.runAction(pop)
                 
