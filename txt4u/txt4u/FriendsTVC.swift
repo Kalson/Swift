@@ -17,29 +17,29 @@ class FriendsTVC: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
      // anything ran here is also ran in the choose TVC b/c its a subclass of this class
-        println("class = \(NSStringFromClass(self.classForCoder))")
+        print("class = \(NSStringFromClass(self.classForCoder))")
         
         // or reflect(self).summary
         if NSStringFromClass(self.classForCoder) == "txt4u.FriendsTVC" {
             
             if PFUser.currentUser()["friends"] != nil {
                 // grabbing the friends from Parse
-                var queryMe = PFUser.query()
+                let queryMe = PFUser.query()
                 queryMe.whereKey("username", equalTo: PFUser.currentUser().username)
                 // includes all the other users data
                 queryMe.includeKey("friend")
                 
                 // first object [0] is me, friends is the key to get back the array of PFusers
                 queryMe.findObjectsInBackgroundWithBlock { (objects: [AnyObject]!, error: NSError!) -> Void in
-                    println(objects)
+                    print(objects)
                     self.friends = objects[0]["friend"] as! [PFUser] // this is an array of PFUsers
                     self.tableView.reloadData()
                     
                 }
             }
             
-            var nC = NSNotificationCenter.defaultCenter()
-            nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification!) -> Void in
+            let nC = NSNotificationCenter.defaultCenter()
+            nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification) -> Void in
                 
                 // make friend have a different color if with unread message
             })
@@ -85,9 +85,9 @@ class FriendsTVC: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("friendCell", forIndexPath: indexPath) 
 
-        var friend = friends[indexPath.row] as PFUser
+        let friend = friends[indexPath.row] as PFUser
         
         cell.textLabel!.text = friend.username
         
@@ -141,7 +141,7 @@ class FriendsTVC: UITableViewController {
         
         if segue.identifier == "showConversation"{
             // any segue that doesn't have an identifier will crash, unless every segue is named
-            var messageViewC = segue.destinationViewController as! messageVC
+            let messageViewC = segue.destinationViewController as! messageVC
             messageViewC.friend = friends[self.tableView.indexPathForCell(sender as! UITableViewCell)!.row]
             // this method return an indexpath so no need to create one
         }

@@ -17,10 +17,10 @@ class MessageCell: UITableViewCell {
     var messageInfo: PFObject!{
         willSet(info){
             
-            var sender = info["sender"] as! PFUser
-            var me = PFUser.currentUser()
+            let sender = info["sender"] as! PFUser
+            let me = PFUser.currentUser()
             
-            println("change info")
+            print("change info")
             
             if sender.objectId == me.objectId{
                 bubble.backgroundColor = UIColor (red:0.984, green:0.231, blue:0.031, alpha:1.0)
@@ -38,30 +38,30 @@ class MessageCell: UITableViewCell {
             // connects the messageLabel to the content that was created before
             messageLabel.text = info["content"] as? String
             
-            var formatter = NSDateFormatter()
+            let formatter = NSDateFormatter()
             formatter.dateFormat = "EEE dd, YYYY - HH:mm"
             
-            var date = (info.createdAt != nil) ? info.createdAt : NSDate()
+            let date = (info.createdAt != nil) ? info.createdAt : NSDate()
             dateLabel.text = formatter.stringFromDate(date)
             
-            println(info["read"])
+            print(info["read"])
             
             
-            var receiver = info["receiver"] as! PFUser
+            let receiver = info["receiver"] as! PFUser
             
             if receiver.objectId != me.objectId{
             
                 if info["read"] as! Bool == false {
                     
-                    println("read")
+                    print("read")
                     
                     UIApplication.sharedApplication().applicationIconBadgeNumber--
                     info["read"] = true
                     info.saveInBackground()
                     
                     
-                    var installation = PFInstallation.currentInstallation()
-                    var badgeCount = installation.badge
+                    let installation = PFInstallation.currentInstallation()
+                    let badgeCount = installation.badge
                     if badgeCount > 0 {
                     installation.badge = badgeCount - 1
                     installation.saveInBackground()
@@ -79,7 +79,7 @@ class MessageCell: UITableViewCell {
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        println("init")
+        print("init")
         
         
         bubble.layer.cornerRadius = 10

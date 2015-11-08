@@ -159,6 +159,7 @@
 		260788BC19A7851F00F1D36C /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = "Kalson Kalu";
 				TargetAttributes = {
@@ -403,6 +404,7 @@
 				260788E219A7852000F1D36C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		260788E319A7852000F1D36C /* Build configuration list for PBXNativeTarget "The Swift ListTests" */ = {
 			isa = XCConfigurationList;
@@ -411,6 +413,7 @@
 				260788E519A7852000F1D36C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

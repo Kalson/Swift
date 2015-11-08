@@ -215,6 +215,8 @@
 		265CEC4E19C086840034273A /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftMigration = 0700;
+				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0600;
 				ORGANIZATIONNAME = KaL;
 				TargetAttributes = {

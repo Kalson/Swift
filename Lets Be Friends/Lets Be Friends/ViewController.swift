@@ -44,20 +44,20 @@ class ViewController: UIViewController {
     {
         loginHolder.removeFromSuperview()
         
-        println("show login")
+        print("show login")
 
         loginHolder.frame = self.view.frame;
         
-        var usernameField = UITextField(frame: CGRectMake(10, 200, 300, 40))
+        let usernameField = UITextField(frame: CGRectMake(10, 200, 300, 40))
         usernameField.placeholder = "Username"
         loginHolder.addSubview(usernameField)
 
-        var passwordField = UITextField(frame: CGRectMake(10, 250, 300, 40))
+        let passwordField = UITextField(frame: CGRectMake(10, 250, 300, 40))
         passwordField.placeholder = "Password"
         passwordField.secureTextEntry = true
         loginHolder.addSubview(passwordField)
         
-        var submitLogin = UIButton(frame: CGRectMake(10, 300, 300, 40))
+        let submitLogin = UIButton(frame: CGRectMake(10, 300, 300, 40))
         submitLogin.setTitle("submit", forState: .Normal)
         submitLogin.backgroundColor = UIColor.lightGrayColor()
         submitLogin.addTarget(self, action: Selector("login"), forControlEvents: .TouchUpInside)
@@ -78,23 +78,23 @@ class ViewController: UIViewController {
         
         loginHolder.removeFromSuperview()
 
-        var emailField = UITextField(frame: CGRectMake(10, 159, 300, 40))
+        let emailField = UITextField(frame: CGRectMake(10, 159, 300, 40))
         emailField.placeholder = "Email"
         emailField.keyboardType = UIKeyboardType.EmailAddress
         emailField.keyboardType = .EmailAddress
 
         signupHolder.addSubview(emailField)
         
-        var usernameField = UITextField(frame: CGRectMake(10, 200, 300, 40))
+        let usernameField = UITextField(frame: CGRectMake(10, 200, 300, 40))
         usernameField.placeholder = "Username"
         signupHolder.addSubview(usernameField)
         
-        var passwordField = UITextField(frame: CGRectMake(10, 250, 300, 40))
+        let passwordField = UITextField(frame: CGRectMake(10, 250, 300, 40))
         passwordField.placeholder = "Password"
         passwordField.secureTextEntry = true
         signupHolder.addSubview(passwordField)
         
-        var submitSignUp = UIButton(frame: CGRectMake(10, 300, 300, 40))
+        let submitSignUp = UIButton(frame: CGRectMake(10, 300, 300, 40))
         submitSignUp.setTitle("submit", forState: .Normal)
         submitSignUp.backgroundColor = UIColor.lightGrayColor()
         submitSignUp.addTarget(self, action: Selector("signup"), forControlEvents: .TouchUpInside)
@@ -120,7 +120,7 @@ class ViewController: UIViewController {
     
     func login()
     {
-        println("you are logged in")
+        print("you are logged in")
 //        var user = PFUser.logInWithUsername(fieldData["Username"]!.text, password: fieldData["Password"]!.text)
         
         PFUser.logInWithUsernameInBackground(fieldData["Username"]!.text, password: fieldData["Password"]!.text, block: { (user: PFUser!, error: NSError!) -> Void in
@@ -172,13 +172,13 @@ class ViewController: UIViewController {
     {
         teamHolder.frame = self.view.frame
         
-        var redTeam = UIButton(frame: CGRectMake(0, 0, 320, halfheight))
+        let redTeam = UIButton(frame: CGRectMake(0, 0, 320, halfheight))
         redTeam.backgroundColor = UIColor.redColor()
         redTeam.addTarget(self, action: Selector("chooseTeam:"), forControlEvents: .TouchUpInside)
         redTeam.tag = 1
         teamHolder.addSubview(redTeam)
         
-        var blueTeam = UIButton(frame: CGRectMake(0, halfheight, 320, halfheight))
+        let blueTeam = UIButton(frame: CGRectMake(0, halfheight, 320, halfheight))
         blueTeam.backgroundColor = UIColor.blueColor()
         blueTeam.addTarget(self, action: Selector("chooseTeam:"), forControlEvents: .TouchUpInside)
         teamHolder.addSubview(blueTeam)
@@ -193,10 +193,10 @@ class ViewController: UIViewController {
         switch teamButton.tag{
         case 1:
             user.setObject("red", forKey: "team")
-            println("red team")
+            print("red team")
         default:
             user.setObject("blue", forKey: "team")
-            println("blue team")
+            print("blue team")
         }
         user.saveInBackground()
         teamHolder.removeFromSuperview()

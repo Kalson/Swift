@@ -24,11 +24,11 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     var friend: PFUser! {
         
         willSet(user) {
-            println("inside will set \(user)")
+            print("inside will set \(user)")
         }
         
         didSet(user){
-            println("inside did set \(user)")
+            print("inside did set \(user)")
         }
     }
     
@@ -44,8 +44,8 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         
         messageField.delegate = self
         
-        var nC = NSNotificationCenter.defaultCenter()
-        nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification!) -> Void in
+        let nC = NSNotificationCenter.defaultCenter()
+        nC.addObserverForName("newMessage", object: nil, queue: NSOperationQueue.mainQueue(), usingBlock: { (notification: NSNotification) -> Void in
             
             // update conversation and reload tableView
         })
@@ -58,7 +58,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        var cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as! MessageCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("messageCell", forIndexPath: indexPath) as! MessageCell
         
         cell.messageInfo = conversation[indexPath.row]
         
@@ -73,17 +73,17 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        println("inside will appear\(friend)")
+        print("inside will appear\(friend)")
         
         
 //        conservation = defaults.arrayForKey(friend.username) as [PFObject]!
         
-        var messageQuery = PFQuery(className: "Message")
+        let messageQuery = PFQuery(className: "Message")
         
         // when u run ur device it creates a new user
         
         // setting up an array of possible relations
-        var possibleRelations = [PFUser.currentUser().username + friend.username, friend.username + PFUser.currentUser().username]
+        let possibleRelations = [PFUser.currentUser().username + friend.username, friend.username + PFUser.currentUser().username]
         messageQuery.whereKey("relation", containedIn: possibleRelations)
 
         messageQuery.findObjectsInBackgroundWithBlock { (messages: [AnyObject]!,error: NSError!) -> Void in
@@ -101,7 +101,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
     }
     
     func textFieldDidBeginEditing(textField: UITextField) {
-        println(textField)
+        print(textField)
         
         formHolder.frame.origin.y = UIScreen.mainScreen().bounds.size.height - 281
     }
@@ -131,7 +131,7 @@ class messageVC: UIViewController, UITableViewDelegate,UITableViewDataSource,UIT
         message["relation"] = PFUser.currentUser().username + friend.username
         message["read"] = false
         
-          println("this is the message \(message)")
+          print("this is the message \(message)")
         // jo + nick or nick + jo
         // have to build query to get messages, unless u build a relationship
         

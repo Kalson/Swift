@@ -21,14 +21,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         PFUser.enableAutomaticUser()
         
         // these 3 lines creates a user
-        var installation = PFInstallation.currentInstallation()
+        let installation = PFInstallation.currentInstallation()
         installation["user"] = PFUser.currentUser()
         // saving the installation
         installation.saveInBackground()
         
         // for the notification badge
-        var types = UIUserNotificationType.Sound | UIUserNotificationType.Badge | UIUserNotificationType.Alert
-        var notificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
+        let types: UIUserNotificationType = [UIUserNotificationType.Sound, UIUserNotificationType.Badge, UIUserNotificationType.Alert]
+        let notificationSettings = UIUserNotificationSettings(forTypes: types, categories: nil)
         
         UIApplication.sharedApplication().registerUserNotificationSettings(notificationSettings)
         
@@ -38,7 +38,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: NSData) {
-        var currentInstallation = PFInstallation.currentInstallation()
+        let currentInstallation = PFInstallation.currentInstallation()
         currentInstallation.setDeviceTokenFromData(deviceToken)
         currentInstallation.saveInBackground()
         
@@ -50,18 +50,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func application(application: UIApplication, didReceiveRemoteNotification userInfo: [NSObject : AnyObject]) {
         
-        println("userInfo = \(userInfo)")
+        print("userInfo = \(userInfo)")
         
 //        var senderName = userInfo["sender"]["objectId"]
         
-        var notification = userInfo["aps"] as! NSDictionary
-        println("notification = \(notification)")
-        var alert = notification["alert"] as! String
-        println("alert = \(alert)")
-        var sender = userInfo["sender"] as! NSDictionary
-        println("sender = \(sender)")
-        var senderName = sender["objectId"] as! String
-        println("senderName = \(senderName)")
+        let notification = userInfo["aps"] as! NSDictionary
+        print("notification = \(notification)")
+        let alert = notification["alert"] as! String
+        print("alert = \(alert)")
+        let sender = userInfo["sender"] as! NSDictionary
+        print("sender = \(sender)")
+        let senderName = sender["objectId"] as! String
+        print("senderName = \(senderName)")
         
         UIApplication.sharedApplication().applicationIconBadgeNumber++
         // badge goes up here
@@ -69,14 +69,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         /// when messageVC shows unread messages change badge count
 
         if UIApplication.sharedApplication().applicationState == UIApplicationState.Background {
-            var localNotification = UILocalNotification()
+            let localNotification = UILocalNotification()
             localNotification.alertBody = "\(senderName) :" + alert
             localNotification.alertAction = "Reply"
             
             UIApplication.sharedApplication().scheduleLocalNotification(localNotification)
         } else {
         
-            var nC = NSNotificationCenter.defaultCenter()
+            let nC = NSNotificationCenter.defaultCenter()
             // need to listen for it in 2 places
             nC.postNotificationName("newMessage", object: nil, userInfo: userInfo)
             // newMessage is being created here

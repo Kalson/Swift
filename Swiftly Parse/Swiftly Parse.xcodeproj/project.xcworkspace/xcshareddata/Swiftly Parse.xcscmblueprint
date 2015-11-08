@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A07C2B2A8594227667791F30B67252658CF103F1" : 0,
+    "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "3AB3E288-35B9-4301-ACB9-0DA5F68EF052",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A07C2B2A8594227667791F30B67252658CF103F1" : "iOS-K",
+    "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94" : "Swift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Swiftly Parse",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Swiftly Parse\/Swiftly Parse.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Kalson\/Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Kalson\/iOS-K.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A07C2B2A8594227667791F30B67252658CF103F1"
+    }
+  ]
+}

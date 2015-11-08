@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "A07C2B2A8594227667791F30B67252658CF103F1" : 0,
+    "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "9E7C761B-C77E-4468-A73D-4663C60DE79C",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "A07C2B2A8594227667791F30B67252658CF103F1" : "iOS-K",
+    "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94" : "Swift"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "Lets Be Friends",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "Lets Be Friends\/Lets Be Friends.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Kalson\/Swift.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9A54362B0BD8D94D88558AB00A2C3FA6D7992D94"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/Kalson\/iOS-K.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "A07C2B2A8594227667791F30B67252658CF103F1"
+    }
+  ]
+}

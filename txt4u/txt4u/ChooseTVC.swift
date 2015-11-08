@@ -23,7 +23,7 @@ class ChooseTVC: FriendsTVC {
         super.viewWillAppear(animated)
         
         // query the user class
-        var friendQuery = PFUser.query()
+        let friendQuery = PFUser.query()
         friendQuery.findObjectsInBackgroundWithBlock { (users: [AnyObject]!, error: NSError!) -> Void in
             // properties need to use self
             self.friends = users as! [PFUser]
@@ -39,7 +39,7 @@ class ChooseTVC: FriendsTVC {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         
-        println((self.navigationController?.presentingViewController as! UINavigationController).viewControllers[0])
+        print((self.navigationController?.presentingViewController as! UINavigationController).viewControllers[0])
         
         // the UINavigation has a property called viewCOntroller that has an array and the index: 0 refers to the root view controller
         
@@ -47,8 +47,8 @@ class ChooseTVC: FriendsTVC {
         var myOldFriends = ((self.navigationController?.presentingViewController as! UINavigationController).viewControllers[0] as! FriendsTVC).friends
         
         // this is long way of myOldFriends
-        var presentingNavC = self.navigationController?.presentingViewController as! UINavigationController
-        var myFriendsTVC = presentingNavC.viewControllers[0] as! FriendsTVC
+        let presentingNavC = self.navigationController?.presentingViewController as! UINavigationController
+        let myFriendsTVC = presentingNavC.viewControllers[0] as! FriendsTVC
 //        var myFriends = myFriendsTVC.friends
         // because of the swift pointer issue
         
@@ -57,7 +57,7 @@ class ChooseTVC: FriendsTVC {
         // += is the same as myFriends.append
         
         // saving the friends to Parse as an array of users (as a one to many relationship)
-        var user = PFUser.currentUser()
+        let user = PFUser.currentUser()
         user["friend"] = myFriendsTVC.friends
         user.saveInBackground()
         
