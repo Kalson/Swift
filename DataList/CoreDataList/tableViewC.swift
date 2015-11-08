@@ -12,17 +12,22 @@ import CoreData
 class tableViewC: UITableViewController, UITextFieldDelegate{
     
     @IBOutlet weak var addButton: UIBarButtonItem!
-    var people = [NSManagedObject]() // create the manageobject based on Entity
+    var names: [String] = []
     
     @IBAction func addButtonAction(sender: AnyObject) {
         
         let myAlert = UIAlertController(title: "New Name?", message: "Add new name", preferredStyle: .Alert)
         
         let saveAction = UIAlertAction(title: "Save", style: .Default) { (action:UIAlertAction) -> Void in
-            let textField = myAlert.textFields!.first
-            textField?.delegate = self
-            self.saveName(textField!.text!)
+            let myTextField = myAlert.textFields!.first
+            myTextField?.delegate = self
+            self.names.append((myTextField!.text!))
             self.tableView.reloadData()
+            
+//            self.textFieldShouldReturn(myTextField!)
+            
+            print(self.names)
+
             
         }
         
@@ -42,38 +47,12 @@ class tableViewC: UITableViewController, UITextFieldDelegate{
         
         presentViewController(myAlert, animated: true, completion: nil)
         
-        print("The people array = \(self.people)")
-        
-    }
-    
-    func saveName(name: String){
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate // pull up the appDelegate
-        let manageContext = appDelegate.managedObjectContext // reference the manageobject context
-        
-        // instantiate the entity with the manage object context
-        let entity = NSEntityDescription.entityForName("Person", inManagedObjectContext: manageContext)
-        
-        // instantiate the managed object and insert it into the manage object context
-        let person = NSManagedObject(entity: entity!, insertIntoManagedObjectContext: manageContext)
-        
-        // set the value of name attribute for the manage Object
-        person.setValue(name, forKey: "name")
-        
-        do {
-            try manageContext.save() // save any changes into the context
-            
-            people.append(person) // insert the manage object into the people array
-        } catch let error as NSError {
-            print("Could not save \(error),\(error.userInfo)")
-        }
-        
-        
         
     }
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+//        self.dismissViewControllerAnimated(true, completion: nil)
         return true
     }
 
@@ -85,23 +64,6 @@ class tableViewC: UITableViewController, UITextFieldDelegate{
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
-    }
-    
-    override func viewWillAppear(animated: Bool) {
-        
-        let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate // pull up the appDelegate
-        let manageContext = appDelegate.managedObjectContext // reference the manageobject context
-        
-        // instantiate fetch request and fetch the entity
-        let fetchRequest = NSFetchRequest(entityName: "Person")
-        
-        do {
-            let results = try manageContext.executeFetchRequest(fetchRequest)
-            people = results as! [NSManagedObject]
-        } catch let error as NSError{
-            print("Could not fetch \(error),\(error.userInfo))")
-        }
-        
     }
 
     override func didReceiveMemoryWarning() {
@@ -118,7 +80,7 @@ class tableViewC: UITableViewController, UITextFieldDelegate{
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return self.people.count
+        return self.names.count
     }
 
     
@@ -127,10 +89,8 @@ class tableViewC: UITableViewController, UITextFieldDelegate{
         let cellIdentifier = "Cell"
         let cell = tableView.dequeueReusableCellWithIdentifier(cellIdentifier, forIndexPath: indexPath)
         
-        let person = people[indexPath.row]
-        
         // Configure the cell...
-        cell.textLabel?.text = person.valueForKey("name") as? String
+        cell.textLabel?.text = names[indexPath.row]
 
         return cell
     }
